@@ -1,0 +1,11 @@
+#!/bin/sh
+
+notify-send \
+    "Clipboard:" \
+    "$(xclip -o -selection clipboard)"
+
+notify-send \
+    "Primary:" \
+    "$(xclip -o -selection primary)"
+
+exit 0

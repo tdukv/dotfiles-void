@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo '' | xclip -i -selection primary
+echo '' | xclip -i -selection clipboard
+
+notify-send \
+    "Clipboards cleared" \
+    "lmao"
+
+exit 0

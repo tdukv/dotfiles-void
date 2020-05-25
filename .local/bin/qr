@@ -1,0 +1,9 @@
+#!/bin/sh
+
+text="$(xclip -o -selection primary)"
+[ -z "$text" ] && exit 0
+
+tmpfile="/tmp/qr.png"
+
+qrencode "$text" -s 20 -o "$tmpfile"
+sxiv -f "$tmpfile" 2>/dev/null
