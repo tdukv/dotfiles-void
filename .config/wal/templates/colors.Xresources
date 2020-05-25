@@ -7,6 +7,8 @@
 ! emacs*foreground:   {foreground}
 ! emacs*background:   {background}
 
+*.cursorColor: {color7}
+
 ! Colors 0-15.
 *.color0: {color0}
 *color0:  {color0}
