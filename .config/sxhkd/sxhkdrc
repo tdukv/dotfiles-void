@@ -1,0 +1,64 @@
+super + w
+      rewal
+
+super + Insert
+      cpbshw
+
+super + Delete
+      cpbclr
+
+
+##### PM
+XF86ScreenSaver
+      slock -m "$(cat ~/.local/share/ascii/lockb)"
+
+XF86Sleep
+      sudo zzz
+
+XF86Suspend
+      sudo ZZZ
+
+shift + XF86Launch1
+        [ "$(printf "No\\nYes" | dmenu -i -p "Shutdown?")" = "Yes" ] && sudo runit-init 0
+
+
+##### Screenshot
+{_,alt + } Print
+       maim {_,-Bi $(xdotool getactivewindow)} ~/screenshots/screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png
+
+
+##### Audio
+{_,alt + } XF86AudioLowerVolume
+	pamixer -d {8,1} && pkill -x -RTMIN+12 dwmblocks
+
+{_,alt + } XF86AudioRaiseVolume
+	pamixer -i {8,1} && pkill -x -RTMIN+12 dwmblocks
+
+XF86AudioMute
+	pamixer -t && pkill -x -RTMIN+12 dwmblocks
+
+##### MPD
+XF86AudioPrev
+	mpc prev
+
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioStop
+	mpc stop
+
+XF86AudioNext
+	mpc next
+
+shift + XF86AudioPrev
+	mpc seek -5
+
+shift + XF86AudioNext
+	mpc seek +5
+
+#####
+XF86MonBrightnessUp
+	sleep 0.2 && pkill -x -RTMIN+15 dwmblocks
+
+XF86MonBrightnessDown
+	sleep 0.2 && pkill -x -RTMIN+15 dwmblocks

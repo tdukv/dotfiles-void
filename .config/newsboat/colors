@@ -1,0 +1,10 @@
+color background          white   default
+color listnormal          white   default dim
+color listfocus           default green dim
+color listnormal_unread   white   default  bold
+color listfocus_unread    default green  bold
+color info                black   cyan    bold
+color article             white   default
+
+highlight article "https?://[^ ]+" cyan default bold
+highlight article "^(Feed|Title|Author|Link|Date):" default default bold

@@ -1,0 +1,12 @@
+$include /etc/inputrc
+
+set enable-keypad off
+
+set bell-style none
+set blink-matching-paren On
+set colored-completion-prefix On
+set completion-query-items 200
+
+"\C-H": backward-kill-word
+C-Space: magic-space
+"\C-l": alias-expand-line
