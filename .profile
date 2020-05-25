@@ -2,6 +2,7 @@
 
 export EDITOR="nano"
 export TERMINAL="st"
+export BROWSER="palemoon"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
