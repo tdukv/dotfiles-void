@@ -1,1 +1,4 @@
 st.termname: st-256color
+! st.font:  Nimbus Mono L:style=Regular:pixelsize=14:antialias=true:autohint=true
+st.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=true
+st.alpha: 0.9
