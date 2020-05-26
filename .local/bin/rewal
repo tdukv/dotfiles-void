@@ -21,5 +21,7 @@ xdotool key super+F5         # update dwm
 pkill -x -USR1 st            # update st
 pkill -x -RTMIN+10 dwmblocks # update dwmblocks
 pkill -x dunst               # update dunst
+### Blocks that 'draw' on the status also need restart.
+pkill -x -RTMIN+9 dwmblocks  # update battery status
 
 notify-send -i "$p" "Theme changed." "$(basename "$p")"
