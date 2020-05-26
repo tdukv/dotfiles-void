@@ -7,6 +7,11 @@ super + Insert
 super + Delete
       cpbclr
 
+super + shift + v
+      mpvurl
+
+super + shift + y
+      ytsb
 
 ##### PM
 XF86ScreenSaver
