@@ -35,7 +35,7 @@ fi
 [ -f $HOME/.cache/wal/colors.Xresources ] && xrdb -merge $HOME/.cache/wal/colors.Xresources
 
 sxhkd &
-compton &
+picom &
 mpd &
 ~/.fehbg
 
@@ -43,5 +43,3 @@ startdwmblocks &
 dwmblocks_mpcupdate &
 
 exec startdwm
-
-# exec /home/totko/Downloads/dwm/dwm-6.2/dwm
