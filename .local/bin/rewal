@@ -1,7 +1,7 @@
 #!/bin/sh
 
-## wpdir="$HOME/wp/1366x768/"
-wpdir="$HOME/wp/1920x1080/"
+wpdir="$HOME/wp/1366x768/"
+## wpdir="$HOME/wp/1920x1080/"
 ## wpdir="$HOME/wp/2560x1440/"
 
 # In case more than one file is selected, pick only the first -v
@@ -21,7 +21,5 @@ xdotool key super+F5         # update dwm
 pkill -x -USR1 st            # update st
 pkill -x -RTMIN+10 dwmblocks # update dwmblocks
 pkill -x dunst               # update dunst
-### Blocks that 'draw' on the status also need restart.
-pkill -x -RTMIN+9 dwmblocks  # update battery status
 
 notify-send -i "$p" "Theme changed." "$(basename "$p")"
