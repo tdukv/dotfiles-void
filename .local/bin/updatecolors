@@ -2,4 +2,3 @@
 
 xdotool key super+F5  # update dwm
 pkill -x -USR1 st     # update st
-pkill -x dunst        # update dunst
