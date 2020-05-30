@@ -19,7 +19,6 @@ wal --backend colorz --saturate 0.9 -qsti "$p"
 
 xdotool key super+F5         # update dwm
 pkill -x -USR1 st            # update st
-pkill -x -RTMIN+10 dwmblocks # update dwmblocks
 pkill -x dunst               # update dunst
 
 notify-send -i "$p" "Theme changed." "$(basename "$p")"
