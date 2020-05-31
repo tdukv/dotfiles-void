@@ -4,7 +4,12 @@ alias e=emacs
 alias mkdir="mkdir -pv"
 alias g="grep -rn --color=auto"
 
-alias +x="chmod +x"
+alias c+x="chmod u+x"
+alias c-x="chmod u-x"
+alias c+r="chmod u+r"
+alias c-r="chmod u-r"
+alias c+w="chmod u+w"
+alias c-w="chmod u-w"
 
 alias hl="highlight --force -O ansi"
 
