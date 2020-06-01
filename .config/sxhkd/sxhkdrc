@@ -1,5 +1,5 @@
-super + w
-      rewal
+super + {_,shift + } w
+      rewal {_,-b}
 
 super + Insert
       cpbshw

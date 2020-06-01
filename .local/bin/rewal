@@ -4,20 +4,41 @@ wpdir="$HOME/wp/1366x768/"
 ## wpdir="$HOME/wp/1920x1080/"
 ## wpdir="$HOME/wp/2560x1440/"
 
-# In case more than one file is selected, pick only the first -v
-p="$(find "${wpdir}" -maxdepth 1 -type f | shuf | sxiv -ifot | head -1)"
+b="colorz" # default
+s="0.8"    # default
+
+bes="schemer2
+colorz
+wal
+haishoku
+colorthief"
+
+while getopts 'bs' c
+do
+  case $c in
+    b)
+      p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
+      b=$(echo "$bes" | dmenu)
+      ;;
+    s)
+      notify-send "Saturation pick not implemented yet."
+      exit 0
+      ;;
+    ?) ;;
+  esac
+done
+
+[ -z "$p" ] && \
+  p="$(find "${wpdir}" -maxdepth 1 -type f |
+           shuf |
+           sxiv -ifot |
+           head -1)"
 
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
-# Backends:
-#  - schemer2
-#  - colorz
-#  - wal
-#  - haishoku
-#  - colorthief
-wal --backend colorz --saturate 0.9 -qsti "$p"
+wal --backend "$b" --saturate "$s" -qsti "$p"
 
-updatecolors
+updatecolors    # update dwm, st
 
 pkill -x dunst  # update dunst
-notify-send -i "$p" "Theme changed." "$(basename "$p")"
+notify-send -i "$p" "Theme changed." "${b}\n$(basename "$p")"
