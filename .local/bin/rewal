@@ -1,13 +1,16 @@
 #!/bin/sh
 
+# -s (saturation) option requires wjt
+# https://github.com/ianremmler/wjt
+
 wpdir="$HOME/wp/1366x768/"
 ## wpdir="$HOME/wp/1920x1080/"
 ## wpdir="$HOME/wp/2560x1440/"
 
 b="colorz" # default
-s="0.8"    # default
+s="90"     # default
 
-bes="schemer2
+be="schemer2
 colorz
 wal
 haishoku
@@ -18,11 +21,16 @@ do
   case $c in
     b)
       p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
-      b=$(echo "$bes" | dmenu)
+      b=$(echo "$be" | dmenu)
       ;;
     s)
-      notify-send "Saturation pick not implemented yet."
-      exit 0
+      p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
+      # TODO: How to figure which backend was used last time?
+      while read -r st; do
+        s=$st
+      done <<EOT
+      $(wjt -p "saturation:" -x "$s")
+EOT
       ;;
     ?) ;;
   esac
@@ -36,9 +44,13 @@ done
 
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
-wal --backend "$b" --saturate "$s" -qsti "$p"
+# Convert to a decimal point format
+[ -z "$s" ] && s=90
+[ "$s" = 100 ] && sf="1.0" || sf="0.${s}"
+
+wal --backend "$b" --saturate "$sf" -qsti "$p"
 
 updatecolors    # update dwm, st
 
 pkill -x dunst  # update dunst
-notify-send -i "$p" "Theme changed." "${b}\n$(basename "$p")"
+notify-send -i "$p" "Theme changed." "${sf}, ${s}%\n${b}\n$(basename "$p")"
