@@ -1,8 +1,8 @@
 color background          white   default
 color listnormal          white   default  dim
-color listfocus           default green    dim
+color listfocus           black   green    dim
 color listnormal_unread   white   default  bold
-color listfocus_unread    default green    bold
+color listfocus_unread    black   green    bold
 color info                black   cyan     bold
 color article             white   default
 
