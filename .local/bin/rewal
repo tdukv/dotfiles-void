@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# -b (backend) option requires dmenu
+# https://tools.suckless.org/dmenu/
+
 # -s (saturation) option requires wjt
 # https://github.com/ianremmler/wjt
 
