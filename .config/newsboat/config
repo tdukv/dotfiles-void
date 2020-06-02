@@ -1,5 +1,4 @@
-#browser palemoon
-browser elinks
+browser $BROWSER
 confirm-exit yes
 
 include "~/.config/newsboat/colors"

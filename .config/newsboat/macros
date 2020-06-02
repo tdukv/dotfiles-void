@@ -1,2 +1,2 @@
-macro v set browser "mpvurl  %u"; open-in-browser ; set browser "elinks"
-macro t set browser "ytthumb %u"; open-in-browser ; set browser "elinks"
+macro v set browser "mpvurl  %u"; open-in-browser ; set browser "$BROWSER"
+macro t set browser "ytthumb %u"; open-in-browser ; set browser "$BROWSER"
