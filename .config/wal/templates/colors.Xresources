@@ -70,3 +70,8 @@ dmenu.background: {color0}
 dmenu.foreground: {color7}
 dmenu.selbackground: {color2}
 dmenu.selforeground: {color0}
+
+dmenu.hlbackground: {color0}
+dmenu.hlforeground: {color4}
+dmenu.hlselbackground: {color6}
+dmenu.hlselforeground: {color0}
