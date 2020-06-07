@@ -79,6 +79,6 @@ dmenu.hlselforeground: {color0}
 wjt.promptbg:  {color2}
 wjt.promptfg:  {color0}
 wjt.sliderbg:  {color8}
-wjt.sliderfg:  {color7}
+wjt.sliderfg:  {color0}
 wjt.valuebg:   {color4}
-wjt.valuefg:   {color7}
+wjt.valuefg:   {color0}
