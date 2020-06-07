@@ -75,3 +75,10 @@ dmenu.hlbackground: {color0}
 dmenu.hlforeground: {color4}
 dmenu.hlselbackground: {color6}
 dmenu.hlselforeground: {color0}
+
+wjt.promptbg:  {color2}
+wjt.promptfg:  {color0}
+wjt.sliderbg:  {color8}
+wjt.sliderfg:  {color7}
+wjt.valuebg:   {color4}
+wjt.valuefg:   {color7}
