@@ -1,6 +1,11 @@
 #!/bin/sh
 
 init=$(mpc status | grep -oE "[0-9]+:[0-9]+" | paste -sd '_')
+# mpc status doesn't show hour column, so
+# <num>:<num> works even for long tracks.
+# Example mpc output:
+# [playing] #6/6 411:02/600:06 (68%)
+
 [ -z "$init" ] && exit 1
 
 wjt -p "Jump to:" -tf -u "${init#*_}" -x "${init%_*}" -z j |
