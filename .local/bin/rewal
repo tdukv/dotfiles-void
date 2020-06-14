@@ -51,7 +51,7 @@ done
 [ -z "$s" ] && s=90
 [ "$s" = 100 ] && sf="1.0" || sf="0.${s}"
 
-wal --backend "$b" --saturate "$sf" -qsti "$p"
+wal -b 000000 --backend "$b" --saturate "$sf" -qsti "$p"
 
 updatecolors    # update dwm, st
 

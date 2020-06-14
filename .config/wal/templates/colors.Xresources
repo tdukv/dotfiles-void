@@ -7,7 +7,6 @@
 ! emacs*foreground:   {foreground}
 ! emacs*background:   {background}
 
-st.background:      #000000
 
 *.cursorColor: {color7}
 
