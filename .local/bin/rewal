@@ -6,9 +6,9 @@
 # -s (saturation) option requires wjt
 # https://github.com/ianremmler/wjt
 
-wpdir="$HOME/wp/1366x768/"
-## wpdir="$HOME/wp/1920x1080/"
-## wpdir="$HOME/wp/2560x1440/"
+wpdir="$HOME/pics/wp/1366x768/"
+## wpdir="$HOME/pics/wp/1920x1080/"
+## wpdir="$HOME/pics/wp/2560x1440/"
 
 b="colorz" # default
 s="90"     # default
