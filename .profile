@@ -8,15 +8,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export XDG_DESKTOP_DIR="/tmp"
-export XDG_DOWNLOAD_DIR="/tmp"
-export XDG_TEMPLATES_DIR="/tmp"
-export XDG_PUBLICSHARE_DIR="/tmp"
-export XDG_DOCUMENTS_DIR="/tmp"
-export XDG_MUSIC_DIR="/tmp"
-export XDG_PICTURES_DIR="/tmp"
-export XDG_VIDEOS_DIR="/tmp"
-
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME"/elinks
 export DTE_HOME="$XDG_CONFIG_HOME"/dte
