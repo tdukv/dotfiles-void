@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# requires wjt
+# https://github.com/ianremmler/wjt
+# or
+# https://github.com/tdukv/wjt
+
+while read -r ai; do
+    a=$ai
+done <<EOT
+    $(wjt -p "set opacity:" -x "90")
+EOT
+
+[ -z "$a" ] && a=90
+[ "$a" = 100 ] && af="1.0" || af="0.${a}"
+
+xrdb -merge <(echo "st.alpha:  ${af}") && pkill -x -USR1 st
