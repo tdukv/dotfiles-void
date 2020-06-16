@@ -13,7 +13,14 @@ EOT
 # Hack to cancel if wjt is canceled ^----------------^
 
 [ -z "$a" ] && a=90
-[ "$a" = 100 ] && af="1.0" || af="0.${a}"
+
+if [ "$a" = 100 ]; then
+    af="1.0"
+elif [ "$a" -lt 10 ]; then
+    af="0.0${a}"
+else
+    af="0.${a}"
+fi
 
 xrdb -merge <(echo "st.alpha:  ${af}") && pkill -x -USR1 st
 notify-send "st alpha set to ${a}% (${af})"
