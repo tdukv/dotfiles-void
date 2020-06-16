@@ -5,6 +5,8 @@
 
 # -s (saturation) option requires wjt
 # https://github.com/ianremmler/wjt
+# or
+# https://github.com/tdukv/wjt
 
 wpdir="$HOME/pics/wp/1366x768/"
 ## wpdir="$HOME/pics/wp/1920x1080/"
