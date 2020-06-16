@@ -29,7 +29,7 @@ shift + XF86Launch1
 
 ##### Screenshot
 {_,alt + } Print
-       maim {_,-Bi $(xdotool getactivewindow)} ~/screenshots/screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png
+       maim {_,-Bi $(xdotool getactivewindow)} ~/pics/screenshots/screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png
 
 
 ##### Audio
