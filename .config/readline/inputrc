@@ -1,6 +1,6 @@
 $include /etc/inputrc
 
-set enable-keypad off
+set enable-keypad on
 
 set bell-style none
 set blink-matching-paren On

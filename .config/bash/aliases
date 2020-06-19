@@ -13,5 +13,4 @@ alias c-w="chmod u-w"
 
 alias hl="highlight --force -O ansi"
 
-alias fixdelkey="tput smkx"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'

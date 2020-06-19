@@ -100,8 +100,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-## fixes del key
-tput smkx
-
 ## disable C-s, C-q
 stty -ixon
