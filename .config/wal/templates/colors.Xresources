@@ -57,6 +57,11 @@ XClock*hourColor:   rgba:{color15.xrgba}
 XClock*minuteColor: rgba:{color15.xrgba}
 XClock*secondColor: rgba:{color15.xrgba}
 
+! Xcalc colors.
+XCalc.ti.Command.background: {color8}
+XCalc.ti.Command.foreground: {color0}
+
+
 dwm.normbordercolor: {color0}
 dwm.normbgcolor: {color0}
 dwm.normfgcolor: {color7}
