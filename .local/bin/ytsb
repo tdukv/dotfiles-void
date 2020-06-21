@@ -5,29 +5,28 @@ urlsfile="${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls"
 url="$(xclip -o -selection primary)"
 
 case "$url" in
-    *youtube.com*)
-	id=$(curl -s "$url" 2>/dev/null |
-		 grep -o 'channel-external-id="[A-Za-z0-9_-]*"' |
-		 sort -u |
-		 cut -d '"' -f 2)
-	[ "$id" = "" ] && notify-send "Invalid channel-external-id" && exit 1
-	[ "$(grep "$id" "$urlsfile")" != "" ] && notify-send "RSS already added." && exit 1
-	rss="https://www.youtube.com/feeds/videos.xml?channel_id=${id} yt"
-	;;
-    *bitchute.com*)
-	id=$(curl -s "$url" 2>/dev/null |
-		 grep -oi "/channel/[^/]*" |
-		 head -1 |
-		 sed "s/\ /%20/g"
-	  )
-	[ "$id" = "" ] && notify-send "Invalid channel-id" && exit 1
-	[ "$(grep "$id" "$urlsfile")" != "" ] && notify-send "RSS already added." && exit 1
-	rss="https://www.bitchute.com/feeds/rss${id} bitchute"
-	;;
-    *)
-	notify-send "Invalid URL" "$url"
-	exit 1
-	;;
+*youtube.com*)
+  id=$(curl -s "$url" 2>/dev/null |
+         grep -o 'channel-external-id="[A-Za-z0-9_-]*"' |
+         sort -u |
+         cut -d '"' -f 2)
+  [ -z "$id" ] && notify-send "Invalid channel-external-id" && exit 1
+  [ -n "$(grep "$id" "$urlsfile")" ] && notify-send "Already added." && exit 1
+  rss="https://www.youtube.com/feeds/videos.xml?channel_id=${id} yt"
+  ;;
+*bitchute.com*)
+  id=$(curl -s "$url" 2>/dev/null |
+         grep -oi "/channel/[^/]*" |
+         head -1 |
+         sed "s/\ /%20/g")
+  [ -z "$id" ] && notify-send "Invalid channel-id" && exit 1
+  [ -n "$(grep "$id" "$urlsfile")" ] && notify-send "Already added." && exit 1
+  rss="https://www.bitchute.com/feeds/rss${id} bitchute"
+  ;;
+*)
+  notify-send "Invalid URL" "$url"
+  exit 1
+  ;;
 esac
 
 echo "$rss" >> "$urlsfile"
