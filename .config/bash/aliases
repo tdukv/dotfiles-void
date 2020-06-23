@@ -11,6 +11,6 @@ alias c-r="chmod u-r"
 alias c+w="chmod u+w"
 alias c-w="chmod u-w"
 
-alias hl="highlight --force -O ansi"
+alias hl="highlight"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'

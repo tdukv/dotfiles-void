@@ -21,6 +21,8 @@ export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 
+export HIGHLIGHT_OPTIONS="--force -O ansi"
+
 export LESSHISTFILE="-"
 export LESS=-R
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
