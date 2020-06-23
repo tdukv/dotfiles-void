@@ -23,6 +23,7 @@ export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 
 export HIGHLIGHT_OPTIONS="--force -O ansi"
 
+export LESSOPEN="|highlight %s"
 export LESSHISTFILE="-"
 export LESS=-R
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
