@@ -8,7 +8,7 @@ init=$(mpc status | grep -oE "[0-9]+:[0-9]+" | paste -sd '_')
 
 [ -z "$init" ] && exit 1
 
-wjt -p "Jump to:" -tf -u "${init#*_}" -x "${init%_*}" -z j |
+wjt -p "Jump to:" -tf -u "${init#*_}" -x "${init%_*}" -s 5 -j 20 -z j |
     while read -r t; do
         case $t in
             j) [ -n "$time" ] && mpc -q seek "$time" ;;
