@@ -16,6 +16,9 @@ super + shift + y
 super + {_,shift + } j
       mpdmenu {_,-p}
 
+super + control +  j
+      mpcseek
+
 ##### PM
 XF86ScreenSaver
       slock -m "$(cat ~/.local/share/ascii/lockb)"
