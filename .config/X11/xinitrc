@@ -37,6 +37,5 @@ mpd &
 ~/.fehbg
 
 startdwmblocks &
-dwmblocks_mpcupdate &
 
 exec startdwm
