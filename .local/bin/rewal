@@ -12,9 +12,6 @@ wpdir="$HOME/pics/wp/1366x768/"
 ## wpdir="$HOME/pics/wp/1920x1080/"
 ## wpdir="$HOME/pics/wp/2560x1440/"
 
-b="colorz" # default
-s="90"     # default
-
 be="schemer2
 colorz
 wal
@@ -27,6 +24,7 @@ do
     b)
       p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
       b=$(echo "$be" | dmenu)
+      beopt="--backend $b"
       ;;
     s)
       p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
@@ -34,8 +32,17 @@ do
       while read -r st; do
         s=$st
       done <<EOT
-      $(wjt -p "saturation:" -x "$s")
+      $(wjt -p "saturation:" -x 75)
 EOT
+      # Convert to a decimal point format
+      [ -z "$s" ] && break
+      if   [ "$s" = 100 ]; then
+          stopt="--saturate 1.0"
+      elif [ "$s" -lt 10 ]; then
+          stopt="--saturate 0.0${s}"
+      else
+          stopt="--saturate 0.${s}"
+      fi
       ;;
     ?) ;;
   esac
@@ -49,20 +56,9 @@ done
 
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
-# Convert to a decimal point format
-[ -z "$s" ] && s=90
-
-if [ "$s" = 100 ]; then
-    sf="1.0"
-elif [ "$s" -lt 10 ]; then
-    sf="0.0${s}"
-else
-    sf="0.${s}"
-fi
-
-wal -b 000000 --backend "$b" --saturate "$sf" -qsti "$p"
+wal -b 000000 ${beopt} ${stopt} -qsti "$p"
 
 updatecolors    # update dwm, st
 
 pkill -x dunst  # update dunst
-notify-send -i "$p" "Theme changed." "${sf}, ${s}%\n${b}\n$(basename "$p")"
+notify-send -i "$p" "Theme changed." "${stopt#--}\n${beopt#--}\n$(basename "$p")"
