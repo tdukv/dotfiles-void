@@ -18,7 +18,7 @@ wal
 haishoku
 colorthief"
 
-while getopts 'bs' c
+while getopts 'bsk' c
 do
   case $c in
     b)
@@ -44,6 +44,7 @@ EOT
           stopt="--saturate 0.${s}"
       fi
       ;;
+    k) bgopts="-b 000000" ;;
     ?) ;;
   esac
 done
@@ -56,7 +57,7 @@ done
 
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
-wal -b 000000 ${beopt} ${stopt} -qsti "$p"
+wal ${bgopts} ${beopt} ${stopt} -qsti "$p"
 
 updatecolors    # update dwm, st
 
