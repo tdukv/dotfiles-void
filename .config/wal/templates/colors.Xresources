@@ -61,7 +61,7 @@ XClock*secondColor: rgba:{color15.xrgba}
 XCalc.ti.Command.background: {color8}
 XCalc.ti.Command.foreground: {color0}
 
-
+! dwm
 dwm.normbordercolor: {color0}
 dwm.normbgcolor: {color0}
 dwm.normfgcolor: {color7}
@@ -70,6 +70,7 @@ dwm.selbordercolor: {color4}
 dwm.selbgcolor: {color2}
 dwm.selfgcolor: {color0}
 
+! dmenu
 dmenu.background: {color0}
 dmenu.foreground: {color7}
 dmenu.selbackground: {color2}
@@ -80,9 +81,32 @@ dmenu.hlforeground: {color4}
 dmenu.hlselbackground: {color6}
 dmenu.hlselforeground: {color0}
 
+! wjt
 wjt.promptbg:  {color2}
 wjt.promptfg:  {color0}
 wjt.sliderbg:  {color8}
 wjt.sliderfg:  {color0}
 wjt.valuebg:   {color6}
 wjt.valuefg:   {color0}
+
+! xmessage
+Xmessage*background:                  {color0}
+Xmessage*foreground:                  {color7}
+
+Xmessage*message.scrollVertical:      Never
+Xmessage*message.scrollHorizontal:    Never
+
+Xmessage*center:                      true
+
+Xmessage*Text.?.cursorColor:          {color2}
+Xmessage*Text.borderColor:            {color6}
+Xmessage*Text*background:             {color0}
+Xmessage*Text.borderWidth:            2
+
+Xmessage*Command.highlightThickness:  1
+Xmessage*Command.internalWidth:       10
+Xmessage*Command.internalHeight:      3
+Xmessage*Command.borderColor:         {color6}
+Xmessage*Command.shapeStyle:          Rectangle
+Xmessage*Command.background:          {color0}
+Xmessage*Command.foreground:          {color6}
