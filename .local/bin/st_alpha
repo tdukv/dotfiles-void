@@ -8,9 +8,9 @@
 while read -r ai; do
     a=$ai
 done <<EOT
-    $(wjt -p "set opacity:" -x "90" || pkill st_alpha)
+    $(wjt -p "set opacity:" -x "90" || pkill -u "$USER" -x "$(basename "$0")")
 EOT
-# Hack to cancel if wjt is canceled ^----------------^
+# Hack to cancel if wjt is canceled ^---------------------------------------^
 
 [ -z "$a" ] && a=90
 
@@ -22,5 +22,5 @@ else
     af="0.${a}"
 fi
 
-xrdb -merge <(echo "st.alpha:  ${af}") && pkill -x -USR1 st
+xrdb -merge <(echo "st.alpha:  ${af}") && pkill -u "$USER" -x -USR1 st
 notify-send "st alpha set to ${a}% (${af})"

@@ -61,5 +61,5 @@ wal ${bgopts} ${beopt} ${stopt} -qsti "$p"
 
 updatecolors    # update dwm, st
 
-pkill -x dunst  # update dunst
+pkill -u "$USER" -x dunst  # update dunst
 notify-send -i "$p" "Theme changed." "${stopt#--}\n${beopt#--}\n$(basename "$p")"

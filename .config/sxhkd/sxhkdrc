@@ -40,13 +40,13 @@ shift + XF86Launch1
 
 ##### Audio
 {_,alt + } XF86AudioLowerVolume
-	pamixer -d {8,1} && pkill -x -RTMIN+12 dwmblocks
+	pamixer -d {8,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 {_,alt + } XF86AudioRaiseVolume
-	pamixer -i {8,1} && pkill -x -RTMIN+12 dwmblocks
+	pamixer -i {8,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 XF86AudioMute
-	pamixer -t && pkill -x -RTMIN+12 dwmblocks
+	pamixer -t       && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 ##### MPD
 XF86AudioPrev
@@ -69,7 +69,7 @@ shift + XF86AudioNext
 
 #####
 XF86MonBrightnessUp
-	sleep 0.2 && pkill -x -RTMIN+15 dwmblocks
+	sleep 0.2 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
 
 XF86MonBrightnessDown
-	sleep 0.2 && pkill -x -RTMIN+15 dwmblocks
+	sleep 0.2 && pkill -u "$USER" -x -RTMIN+15 dwmblocks

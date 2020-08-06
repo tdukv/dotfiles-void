@@ -1,4 +1,4 @@
 #!/bin/sh
 
-xdotool key super+F5  # update dwm
-pkill -u "$USER" -x -USR1 st     # update st
+xdotool key super+F5           # update dwm
+pkill -u "$USER" -x -USR1 st   # update st
