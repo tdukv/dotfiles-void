@@ -21,7 +21,7 @@ super + control +  j
 
 ##### PM
 XF86ScreenSaver
-      slock -m "$(cat ~/.local/share/ascii/lockb)"
+      slock
 
 XF86Sleep
       sudo zzz
