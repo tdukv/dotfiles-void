@@ -57,9 +57,9 @@ fi
 exitstatus()
 {
     if [[ $? == 0 ]]; then
-        echo -e '\e[1;32m✔\e(B\e[m'
+        echo -e '\001\e[1;32m\002✔'
     else
-        echo -e '\e[1;31mx\e(B\e[m'
+        echo -e '\001\e[1;31m\002x'
     fi
 }
 if [ "$color_prompt" = yes ]; then
