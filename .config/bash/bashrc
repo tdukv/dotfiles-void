@@ -56,6 +56,7 @@ fi
 
 exitstatus()
 {
+# shellcheck disable=SC2181
     if [[ $? == 0 ]]; then
         echo -e '\001\e[1;32m\002✔'
     else
@@ -72,6 +73,7 @@ unset color_prompt force_color_prompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
+# shellcheck disable=SC2015
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
