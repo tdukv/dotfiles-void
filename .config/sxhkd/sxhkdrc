@@ -40,10 +40,10 @@ shift + XF86Launch1
 
 ##### Audio
 {_,alt + } XF86AudioLowerVolume
-	pamixer --allow-boost -d {8,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
+	pamixer --allow-boost -d {4,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 {_,alt + } XF86AudioRaiseVolume
-	pamixer --allow-boost -i {8,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
+	pamixer --allow-boost -i {4,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 XF86AudioMute
 	pamixer --allow-boost -t       && pkill -u "$USER" -x -RTMIN+12 dwmblocks
