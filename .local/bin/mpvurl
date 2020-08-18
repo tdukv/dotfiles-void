@@ -1,12 +1,21 @@
 #!/bin/sh
 
-url=$1
-[ "$url" = "" ] && url="$(xclip -o -selection primary)"
-
 ### 1080p ###
 height=1080
 ### 1440p ###
 ## height=1440
+
+while getopts 'd' o; do
+   case $o in
+      d) height=$(printf "1440\n1080\n720\n480\n320" | dmenu -p 'Resolution?')
+         shift
+         ;;
+      ?) ;;
+   esac
+done
+
+url=$1
+[ "$url" = "" ] && url="$(xclip -o -selection primary)"
 
 notify-send "mpvurl" "Trying ${url} with h=${height}\n(Final resolutions may differ.)"
 
