@@ -1,12 +1,12 @@
 #!/bin/sh
-
 resolutions="1366x768 1920x1080 1920x1200 1920x1280 2560x1440 2560x1600 3840x2160 3840x1080"
 
 reztable=$(identify ./*jpg ./*png 2>/dev/null | cut -d ' ' -f 1,3)
 
 for res in $resolutions; do
     mvlist=$(echo "$reztable" | grep " $res\$" | cut -d ' ' -f 1)
-    [ "$mvlist" != "" ] && mkdir -pv "$res" && mv -v $mvlist "$res"
+# shellcheck disable=SC2086
+    [ -n "$mvlist" ] && mkdir -pv "$res" && mv -v $mvlist "$res"
 done
 
 exit 0

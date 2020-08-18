@@ -57,6 +57,7 @@ done
 
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
+# shellcheck disable=SC2086
 wal ${bgopts} ${beopt} ${stopt} -qsti "$p"
 
 updatecolors    # update dwm, st
