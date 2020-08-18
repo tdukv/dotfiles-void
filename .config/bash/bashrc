@@ -64,7 +64,7 @@ exitstatus()
     fi
 }
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[1;34m\]|$(exitstatus)\[\e(B\e[m\]\[\e[1;32m\]\u@\h\[\e(B\e[m\]:\[\e[1;35m\]\w\[\e(B\e[m\]\[\e[1;34m\]|\[\e(B\e[m\]\[\e[36m\]\$\[\e(B\e[m\] '
+    PS1='\[\e[1;34m\]|$(exitstatus)\[\e[1;32m\]\u@\h\[\e(B\e[m\]:\[\e[1;35m\]\w\[\e[1;34m\]|\[\e[36m\]\$\[\e(B\e[m\] '
     PS2='\[\e[36m\]>\[\e[0m\] '
 else
     PS1='[\u@\h \w]\$ '
