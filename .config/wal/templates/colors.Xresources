@@ -81,6 +81,14 @@ dmenu.hlforeground: {color4}
 dmenu.hlselbackground: {color6}
 dmenu.hlselforeground: {color0}
 
+! xmenu
+xmenu.background:      {color0}
+xmenu.foreground:      {color7}
+xmenu.selbackground:   {color2}
+xmenu.selforeground:   {color0}
+xmenu.border:          {color2}
+xmenu.separator:       {color2}
+
 ! wjt
 wjt.promptbg:  {color2}
 wjt.promptfg:  {color0}
