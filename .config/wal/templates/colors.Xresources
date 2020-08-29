@@ -62,9 +62,9 @@ XCalc.ti.Command.background: {color8}
 XCalc.ti.Command.foreground: {color0}
 
 ! dwm
-dwm.normbordercolor: {color0}
-dwm.normbgcolor: {color0}
-dwm.normfgcolor: {color7}
+dwm.normbordercolor: {background}
+dwm.normbgcolor: {background}
+dwm.normfgcolor: {foreground}
 
 dwm.selbordercolor: {color4}
 dwm.selbgcolor: {color2}
