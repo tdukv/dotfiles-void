@@ -1,6 +1,21 @@
+! st
 st.termname: st-256color
-! st.font:  Nimbus Mono L:style=Regular:pixelsize=14:antialias=true:autohint=true
 st.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=true
-xmenu.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=true
 st.alpha:    0.9
 st.alphaUnf: 0.78
+
+
+! xmenu
+xmenu.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=true
+
+
+! xmessage
+Xmessage*message.scrollVertical:      Never
+Xmessage*message.scrollHorizontal:    Never
+
+Xmessage*Text.borderWidth:            2
+
+Xmessage*Command.highlightThickness:  1
+Xmessage*Command.internalWidth:       10
+Xmessage*Command.internalHeight:      3
+Xmessage*Command.shapeStyle:          Rectangle
