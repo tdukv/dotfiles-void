@@ -71,19 +71,19 @@ dwm.selbgcolor: {color2}
 dwm.selfgcolor: {color0}
 
 ! dmenu
-dmenu.background: {color0}
-dmenu.foreground: {color7}
+dmenu.background: {background}
+dmenu.foreground: {foreground}
 dmenu.selbackground: {color2}
 dmenu.selforeground: {color0}
 
-dmenu.hlbackground: {color0}
+dmenu.hlbackground: {background}
 dmenu.hlforeground: {color4}
 dmenu.hlselbackground: {color6}
 dmenu.hlselforeground: {color0}
 
 ! xmenu
-xmenu.background:      {color0}
-xmenu.foreground:      {color7}
+xmenu.background:      {background}
+xmenu.foreground:      {foreground}
 xmenu.selbackground:   {color2}
 xmenu.selforeground:   {color0}
 xmenu.border:          {color2}
@@ -98,12 +98,12 @@ wjt.valuebg:   {color6}
 wjt.valuefg:   {color0}
 
 ! xmessage
-Xmessage*background:                  {color0}
-Xmessage*foreground:                  {color7}
+Xmessage*background:                  {background}
+Xmessage*foreground:                  {foreground}
 
 Xmessage*Text.?.cursorColor:          {color2}
 Xmessage*Text.borderColor:            {color6}
-Xmessage*Text*background:             {color0}
+Xmessage*Text*background:             {background}
 Xmessage*Command.borderColor:         {color6}
-Xmessage*Command.background:          {color0}
+Xmessage*Command.background:          {background}
 Xmessage*Command.foreground:          {color6}
