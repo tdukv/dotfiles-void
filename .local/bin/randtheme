@@ -1,4 +1,1 @@
-#!/bin/sh
-
-pkill -u "$USER" -x dunst
-notify-send "$(wal --theme random_dark -sto updatecolors | grep --color=none -o "Set theme.*" | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g")"
+usertheme

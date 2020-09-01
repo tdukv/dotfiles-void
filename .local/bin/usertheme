@@ -1,7 +1,12 @@
 #!/bin/sh
 # shellcheck disable=SC2046
 
-theme="$(basename -s .json $(find ~/.config/wal/colorschemes/dark/ -type f) | dmenu)"
+case "$0" in
+  *randtheme)
+    theme="random_dark" ;;
+  *)
+    theme="$(basename -s .json $(find ~/.config/wal/colorschemes/dark/ -type f) | dmenu)" ;;
+esac
 
 [ -z "$theme" ] && exit 0
 
