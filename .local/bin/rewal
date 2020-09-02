@@ -24,7 +24,7 @@ do
   case $c in
     b)
       p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
-      b=$(echo "$be" | dmenu)
+      b=$(echo "$be" | dmenu -r -i)
       beopt="--backend $b"
       ;;
     s)
