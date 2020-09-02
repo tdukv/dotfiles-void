@@ -13,6 +13,7 @@ export HISTFILE="$XDG_DATA_HOME"/bash/history
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME"/elinks
 export DTE_HOME="$XDG_CONFIG_HOME"/dte
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
