@@ -8,6 +8,7 @@
 # or
 # https://github.com/tdukv/wjt
 
+## wpdir="$HOME/pics/wp/1280x800/"
 wpdir="$HOME/pics/wp/1366x768/"
 ## wpdir="$HOME/pics/wp/1920x1080/"
 ## wpdir="$HOME/pics/wp/2560x1440/"
