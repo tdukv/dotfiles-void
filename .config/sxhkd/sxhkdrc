@@ -69,7 +69,7 @@ shift + XF86AudioNext
 
 #####
 XF86MonBrightnessUp
-	sleep 0.2 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
+	xbacklight +5 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
 
 XF86MonBrightnessDown
-	sleep 0.2 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
+	xbacklight -5 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
