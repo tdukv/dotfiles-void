@@ -1,0 +1,18 @@
+#!/bin/sh
+
+savedir="$HOME/pics/screenshots/"
+
+while getopts 'w' o; do
+   case $o in
+      w) winopt="-Bi $(xdotool getactivewindow)" ;;
+      ?) ;;
+   esac
+done
+
+filename="screenshot-$(date '+%F_%H-%M-%S').png"
+
+maim $winopt "${savedir}${filename}"
+
+notify-send -i "${savedir}${filename}" "Screenshot taken" "${savedir}${filename}"
+
+exit 0
