@@ -34,8 +34,8 @@ shift + XF86Launch1
 
 
 ##### Screenshot
-{_,alt + } Print
-       screenshot  {_,-w}
+{_,alt +,control + } Print
+       screenshot  {_,-w,-s}
 
 
 ##### Audio
