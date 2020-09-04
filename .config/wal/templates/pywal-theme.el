@@ -91,9 +91,9 @@
    `(match ((t (:background ,background :foreground ,red :weight bold))))
 
    ;; isearch
-   `(isearch ((t (:foreground ,yellow :weight bold :background ,background))))
-   `(isearch-fail ((t (:foreground ,foreground :background ,red))))
-   `(lazy-highlight ((t (:foreground ,yellow :weight bold :background ,background))))
+   `(isearch ((t (:foreground ,black :weight bold :background ,light-cyan))))
+   `(isearch-fail ((t (:foreground ,black :background ,red))))
+   `(lazy-highlight ((t (:foreground ,black :weight bold :background ,light-gray))))
 
    `(menu ((t (:foreground ,foreground :background ,background))))
    `(minibuffer-prompt ((t (:foreground ,yellow))))
