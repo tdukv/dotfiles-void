@@ -58,8 +58,8 @@ XClock*minuteColor: rgba:{color15.xrgba}
 XClock*secondColor: rgba:{color15.xrgba}
 
 ! Xcalc colors.
-XCalc.ti.Command.background: {color8}
-XCalc.ti.Command.foreground: {color0}
+! XCalc.ti.Command.background: {color8}
+! XCalc.ti.Command.foreground: {color0}
 
 ! dwm
 dwm.normbordercolor: {background}
@@ -107,3 +107,40 @@ Xmessage*Text*background:             {background}
 Xmessage*Command.borderColor:         {color6}
 Xmessage*Command.background:          {background}
 Xmessage*Command.foreground:          {color6}
+
+! xcalc
+xcalc*ti.background: {background}
+xcalc*ti.bevel.borderColor: {color8}
+xcalc*ti.bevel.background: {background}
+xcalc*ti.bevel.screen*background: {background}
+xcalc*ti.bevel.screen.borderColor: {foreground}
+xcalc*ti.bevel.screen*LCD.foreground: {foreground}
+
+xcalc*ti.Command.borderColor: {color8}
+
+xcalc*ti.Command.background: {color0}
+xcalc*ti.Command.foreground: {color4}
+
+xcalc*ti.button27.foreground: {color7}
+xcalc*ti.button28.foreground: {color7}
+xcalc*ti.button29.foreground: {color7}
+xcalc*ti.button32.foreground: {color7}
+xcalc*ti.button33.foreground: {color7}
+xcalc*ti.button34.foreground: {color7}
+xcalc*ti.button37.foreground: {color7}
+xcalc*ti.button38.foreground: {color7}
+xcalc*ti.button39.foreground: {color7}
+xcalc*ti.button42.foreground: {color7}
+xcalc*ti.button43.foreground: {color7}
+xcalc*ti.button44.foreground: {color7}
+xcalc*ti.button47.foreground: {color7}
+xcalc*ti.button48.foreground: {color7}
+xcalc*ti.button49.foreground: {color7}
+xcalc*ti.button52.foreground: {color7}
+
+xcalc*ti.button5.foreground:  {color1}
+xcalc*ti.button35.foreground: {color6}
+xcalc*ti.button40.foreground: {color6}
+xcalc*ti.button45.foreground: {color6}
+xcalc*ti.button50.foreground: {color6}
+xcalc*ti.button55.foreground: {color2}
