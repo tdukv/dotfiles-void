@@ -1,0 +1,8 @@
+! xmessage
+Xmessage*message.scrollVertical:      Never
+Xmessage*message.scrollHorizontal:    Never
+Xmessage*Text.borderWidth:            2
+Xmessage*Command.highlightThickness:  1
+Xmessage*Command.internalWidth:       10
+Xmessage*Command.internalHeight:      3
+Xmessage*Command.shapeStyle:          Rectangle
