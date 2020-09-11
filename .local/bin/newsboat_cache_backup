@@ -1,0 +1,25 @@
+#!/bin/sh
+
+cachedir="${HOME}/.local/share/newsboat"
+cachefile="cache.db"
+
+if [ ! -f "${cachedir}/${cachefile}" ]; then
+    notify-send "$(basename "$0")" "cache not fonud"
+    exit 1
+fi
+
+if lsof "${cachedir}/${cachefile}"; then
+    notify-send "$(basename "$0")" "plz cloz file"
+    exit 1
+fi
+
+suffix="bak.$(date +"%Y%m%d")"
+
+if [ -f "${cachedir}/${cachefile}.${suffix}" ]; then
+    notify-send "$(basename "$0")" "already backed up 2day"
+    exit 0
+fi
+
+notify-send "$(basename "$0")" "$(cp -v "${cachedir}/${cachefile}" "${cachedir}/${cachefile}.${suffix}")"
+
+exit 0
