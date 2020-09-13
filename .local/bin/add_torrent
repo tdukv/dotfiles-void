@@ -1,0 +1,3 @@
+#!/bin/sh
+
+notify-send "$(basename "$0")" "$(transmission-remote -a "$(xclip -o)" 2>&1)"
