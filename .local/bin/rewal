@@ -23,12 +23,12 @@ while getopts 'bsk' c
 do
   case $c in
     b)
-      p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
+      read -r p < "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal"
       b=$(echo "$be" | dmenu -r -i)
       beopt="--backend $b"
       ;;
     s)
-      p="$(cat "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal")"
+      read -r p < "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal"
       # TODO: How to figure which backend was used last time?
       while read -r st; do
         s=$st
