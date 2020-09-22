@@ -19,7 +19,7 @@ wal
 haishoku
 colorthief"
 
-while getopts 'bsk' c
+while getopts 'bski:' c
 do
   case $c in
     b)
@@ -46,6 +46,7 @@ EOT
       fi
       ;;
     k) bgopts="-b 000000" ;;
+    i) p=$OPTARG ;;
     ?) ;;
   esac
 done
