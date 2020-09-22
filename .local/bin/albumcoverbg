@@ -1,0 +1,19 @@
+#!/bin/sh
+
+musicdir="$HOME/music"
+
+img=$(find "$musicdir/$(dirname "$(mpc current -f "%file%")")/" -type f -print0 |
+          xargs -0 file --mime-type |
+          grep -F 'image/' |
+          cut -d ':' -f 1 |
+          head -1 )
+### TODO: Ignore back covers
+### TODO: Find biggest image if >1
+
+if [ -f "$img" ]; then
+    rewal -i "$img"
+    exit 0
+else
+    notify-send "$(basename "$0")" "Didn't find cover"
+    exit 1
+fi
