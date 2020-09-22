@@ -3,8 +3,8 @@
 musicdir="$HOME/music"
 
 img=$(find "$musicdir/$(dirname "$(mpc current -f "%file%")")/" -maxdepth 1 \
-           -type f  -iname "*png" -o -iname "*jpg" | head -1 )
-### TODO: Ignore back covers
+           -type f  -iname "*png" -o -iname "*jpg" -not -iname "*back*" |
+      head -1 )
 ### TODO: Find biggest image if >1
 
 if [ -f "$img" ]; then
