@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# This takes an YT music link, plays the audio in mpv,
+# sets the cover as wallpapet through pywal.
+
+url=$1
+[ "$url" = "" ] && url="$(xclip -o -selection primary)"
+
+
+case "$url" in
+    *youtube.com*)
+        id=$(echo "$url" | cut -d '=' -f 2)
+        img="https://img.youtube.com/vi/${id}/maxresdefault.jpg"
+        cover="/tmp/ytmusic_$id.png"
+        ;;
+    *)
+        notify-send "Invalid URL"
+        exit 1
+        ;;
+esac
+
+wget -q -O "$cover" "$img" || exit 1
+
+notify-send "ytmusic" "Playing ${url}"
+
+rewal -i "$cover"
+
+$TERMINAL -c trmfloat -e mpv --video=no --keep-open=yes --ytdl-format="(bestaudio/best)" "$url"
+
+exit 0

@@ -1,3 +1,4 @@
 macro v set browser "mpvurl    %u"; open-in-browser ; set browser "$BROWSER"
 macro V set browser "mpvurl -d %u"; open-in-browser ; set browser "$BROWSER"
 macro t set browser "ytthumb   %u"; open-in-browser ; set browser "$BROWSER"
+macro m set browser "ytmusic %u &"; open-in-browser ; set browser "$BROWSER"
