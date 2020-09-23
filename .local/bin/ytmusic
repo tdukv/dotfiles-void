@@ -25,6 +25,6 @@ notify-send "ytmusic" "Playing ${url}"
 
 rewal -i "$cover"
 
-$TERMINAL -c trmfloat -e mpv --video=no --keep-open=yes --ytdl-format="(bestaudio/best)" "$url"
+$TERMINAL -g 56x4 -c trmfloat -e mpv --video=no --keep-open=yes --ytdl-format="(bestaudio/best)" "$url"
 
 exit 0
