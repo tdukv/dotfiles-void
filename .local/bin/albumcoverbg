@@ -2,9 +2,15 @@
 
 musicdir="$HOME/music"
 
-img=$(find "$musicdir/$(dirname "$(mpc current -f "%file%")")/" -maxdepth 1 \
-           -type f  -iname "*png" -o -iname "*jpg" -not -iname "*back*" |
-      head -1 )
+albumdir="$musicdir/$(dirname "$(mpc current -f "%file%")")/"
+
+if [ -f "$albumdir"/cov2pape_wallpaper.png ]; then
+    img="$albumdir"/cov2pape_wallpaper.png
+else
+    img=$(find "$albumdir" -maxdepth 1 -type f \
+               -iname "*png" -o -iname "*jpg" -not -iname "*back*" |
+          head -1 )
+fi
 ### TODO: Find biggest image if >1
 
 if [ -f "$img" ]; then
