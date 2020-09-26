@@ -8,10 +8,10 @@ if [ -f "$albumdir"/cov2pape_wallpaper.png ]; then
     img="$albumdir"/cov2pape_wallpaper.png
 else
     img=$(find "$albumdir" -maxdepth 1 -type f \
-               -iname "*png" -o -iname "*jpg" -not -iname "*back*" |
-          head -1 )
+               -iname "*png" -o -iname "*jpg" -not -iname "*back*" )
 fi
-### TODO: Find biggest image if >1
+
+[ -f "$img" ] || img=$(echo "$img" | sxiv -iot)
 
 if [ -f "$img" ]; then
     rewal -i "$img"
