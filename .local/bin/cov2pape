@@ -1,12 +1,12 @@
 #!/bin/sh
 
-BGFILE=$(mktemp -t cov2papebg.XXXXXXXX)
-FGFILE=$(mktemp -t cov2papefg.XXXXXXXX)
-
 finish () {
     rm "$BGFILE" "$FGFILE"
 }
 trap finish EXIT
+
+BGFILE=$(mktemp -t cov2papebg.XXXXXXXX)
+FGFILE=$(mktemp -t cov2papefg.XXXXXXXX)
 
 cover=$1
 
@@ -31,10 +31,14 @@ else
     exit 1
 fi
 
-convert "$cover" -resize "$width" -gravity center -extent "$width"x"$height" -blur 60x20 "$BGFILE" || exit 2
+convert "$cover" -resize "$width" -gravity center \
+        -extent "$width"x"$height" -blur 60x20 "$BGFILE" \
+    || exit 2
 
-convert "$cover" -resize x"$height" "$FGFILE" || exit 2
+convert "$cover" -resize x"$height" "$FGFILE" \
+    || exit 2
 
-composite -gravity center "$FGFILE" "$BGFILE" cov2pape_wallpaper.png || exit 2
+composite -gravity center "$FGFILE" "$BGFILE" cov2pape_wallpaper.png \
+    || exit 2
 
 exit 0
