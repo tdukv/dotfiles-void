@@ -1,16 +1,15 @@
 #!/bin/sh
 
-url=$1
-[ "$url" = "" ] && url="$(xclip -o -selection primary)"
+url=${1:-$(xclip -o -selection primary)}
 
-case "$url" in 
+case "$url" in
     *youtube.com*)
-	id=$(echo "$url" | cut -d '=' -f 2)
-	feh --class fehfloat "https://img.youtube.com/vi/${id}/hqdefault.jpg"
-	;;
+        id=${url#*=}
+        feh --class fehfloat "https://img.youtube.com/vi/${id}/hqdefault.jpg"
+        ;;
     ### add other sites
     *)
-	notify-send "Invalid URL"
-	exit 1
-	;;
+        notify-send "Invalid URL"
+        exit 1
+        ;;
 esac

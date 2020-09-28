@@ -18,6 +18,7 @@ done
 
 filename="screenshot-$(date '+%F_%H-%M-%S').png"
 
+# shellcheck disable=SC2086
 maim $winopt $selopt "${savedir}${filename}"
 
 notify-send -i "${savedir}${filename}" "Screenshot taken" "${savedir}${filename}"

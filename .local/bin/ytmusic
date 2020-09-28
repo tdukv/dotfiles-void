@@ -8,8 +8,8 @@ url=${1:-$(xclip -o -selection primary)}
 case "$url" in
     *youtube.com*)
         id=${url#*=}
-        img="https://img.youtube.com/vi/${id}/maxresdefault.jpg"
-        cover="/tmp/ytmusic_$id.png"
+        thumb="https://img.youtube.com/vi/${id}/maxresdefault.jpg"
+        wall="/tmp/ytmusic_$id.png"
         ;;
     *)
         notify-send "Invalid URL"
@@ -17,13 +17,13 @@ case "$url" in
         ;;
 esac
 
-wget -q -O "$cover" "$img" || exit 1
+[ -f "$wall" ] || wget -q -O "$wall" "$thumb" || exit 2
 
-notify-send "ytmusic" "Playing ${url}"
-
-rewal -i "$cover"
+notify-send -i "$wall" "ytmusic" "Playing ${url}"
 
 $TERMINAL -g 56x4 -c trmfloat -e \
     mpv --video=no --keep-open=yes --ytdl-format="(bestaudio/best)" "$url"
+
+rewal -i "$wall"
 
 exit 0
