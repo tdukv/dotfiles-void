@@ -1,0 +1,8 @@
+#!/bin/bash
+
+resourcefile=$( find "${XDG_CONFIG_HOME:-$HOME/.config}/X11/Xresources.d/" -type f -name "st_alpha*" | dmenu )
+
+[ -z "$resourcefile" ] && exit 0
+echo korhoi
+xrdb -merge "$resourcefile"
+pkill -u "$USER" -x -USR1 st

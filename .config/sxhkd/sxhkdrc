@@ -20,7 +20,7 @@ super + control +  j
       mpcseek
 
 super + shift + control + t
-      pkill -USR2 -x -u "$USER" st
+      termalpha
 
 ##### PM
 XF86ScreenSaver
