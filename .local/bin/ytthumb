@@ -13,7 +13,7 @@ url=${1:-$(xclip -o -selection primary)}
 case "$url" in
     *youtube.com*)
         id=${url#*=}
-        feh -q --zoom fill "https://img.youtube.com/vi/${id}/${thumb}.jpg"
+        feh -q -. -B black "https://img.youtube.com/vi/${id}/${thumb}.jpg"
         ;;
     ### add other sites
     *)
