@@ -25,6 +25,7 @@ do
     b)
       read -r p < "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal"
       b=$(echo "$be" | dmenu -r -i)
+      [ -z "$b" ] && exit 0
       beopt="--backend $b"
       ;;
     s)
@@ -36,7 +37,7 @@ do
       $(wjt -p "saturation:" -x 75)
 EOT
       # Convert to a decimal point format
-      [ -z "$s" ] && break
+      [ -z "$s" ] && exit 0
       if   [ "$s" = 100 ]; then
           stopt="--saturate 1.0"
       elif [ "$s" -lt 10 ]; then
