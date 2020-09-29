@@ -1,11 +1,19 @@
 #!/bin/sh
 
+thumb="hqdefault"
+while getopts 'm' o; do
+  case $o in
+    m) thumb="maxresdefault" ; shift ;;
+    ?) ;;
+   esac
+done
+
 url=${1:-$(xclip -o -selection primary)}
 
 case "$url" in
     *youtube.com*)
         id=${url#*=}
-        feh --class fehfloat "https://img.youtube.com/vi/${id}/hqdefault.jpg"
+        feh -q --zoom fill "https://img.youtube.com/vi/${id}/${thumb}.jpg"
         ;;
     ### add other sites
     *)
