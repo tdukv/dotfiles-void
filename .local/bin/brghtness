@@ -1,0 +1,14 @@
+#!/bin/sh
+
+finish () {
+    pkill -u "$USER" -x -RTMIN+15 dwmblocks
+}
+trap finish EXIT
+
+init=$(xbacklight)
+
+[ -z "$init" ] && exit 1
+
+wjt -p "Brightness" -x "${init%%.*}" -j 5 | while read -r val; do
+    xbacklight -set "$val"
+done

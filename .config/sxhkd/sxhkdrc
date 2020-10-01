@@ -76,3 +76,9 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
 	xbacklight -5 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
+
+shift + XF86MonBrightnessUp
+      brghtness
+
+shift + XF86MonBrightnessDown
+      brghtness
