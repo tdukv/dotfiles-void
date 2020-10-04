@@ -1,10 +1,10 @@
 #!/bin/sh
 
-notify-send \
+notify-send -- \
     "Clipboard:" \
     "$(xclip -o -selection clipboard)"
 
-notify-send \
+notify-send -- \
     "Primary:" \
     "$(xclip -o -selection primary)"
 

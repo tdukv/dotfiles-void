@@ -3,4 +3,4 @@
 text="$(xclip -o -selection primary)"
 [ -z "$text" ] && exit 0
 
-qrencode "$text" -s 20 -o - | feh - -F
+qrencode -s 20 -o - -- "$text" | feh - -F
