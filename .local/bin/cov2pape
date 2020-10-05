@@ -5,12 +5,17 @@ finish () {
 }
 trap finish EXIT
 
+die () {
+    >&2 echo "$@"
+    exit 1
+}
+
 BGFILE=$(mktemp -t cov2papebg.XXXXXXXX)
 FGFILE=$(mktemp -t cov2papefg.XXXXXXXX)
 
 cover=$1
 
-[ -f "$cover" ] || exit 1
+[ -f "$cover" ] || die "${cover}: no such file"
 
 initheight=$(identify -format "%h\n" "$cover")
 
@@ -27,18 +32,17 @@ elif [ "$initheight" -ge 720  ]; then
     height=720
     width=1280
 else
-    >&2 echo "Img 2 smoll!"
-    exit 1
+    die "Img 2 smoll!"
 fi
 
 convert "$cover" -resize "$width" -gravity center \
         -extent "$width"x"$height" -blur 60x20 "$BGFILE" \
-    || exit 2
+    || die "BG resize failed"
 
 convert "$cover" -resize x"$height" "$FGFILE" \
-    || exit 2
+    || die "FG resize failed"
 
 composite -gravity center "$FGFILE" "$BGFILE" cov2pape_wallpaper.png \
-    || exit 2
+    || die "composite failed"
 
 exit 0
