@@ -14,6 +14,8 @@ while getopts 'd' o; do
    esac
 done
 
+[ -z "$height" ] && exit 1
+
 url=${1:-$(xclip -o -selection primary)}
 
 notify-send "mpvurl" \
