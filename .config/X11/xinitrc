@@ -7,6 +7,8 @@ sysresources=/etc/X11/xinit/.Xresources
 userresources=$HOME/.config/X11/Xresources
 pywalresources=$HOME/.cache/wal/colors.Xresources
 
+export SUDO_ASKPASS="/usr/local/bin/askpass"
+
 # merge in defaults and keymaps
 
 [ -f $sysresources ] &&
