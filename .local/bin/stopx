@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Should only stop the 'current' X,
+# and leave other users or the same
+# user running on other ttys alone.
+# Set $THIS_TTY to $(tty) at login.
+
+# If it is not set, you can still
+# pick which X to kill via dmenu.
+
+# Cancel dmenu to cancel.
+
+# pgrep can't grep by tty AFAIK
+# shellcheck disable=SC2009
+thisx=$(ps x | grep -E "^[0-9]*\s*${THIS_TTY##*/}.*xinit.*$" | dmenu -p "which x")
+
+[ -z "$thisx" ] && exit 1
+
+kill -HUP "${thisx%% *}"

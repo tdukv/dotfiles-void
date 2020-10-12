@@ -18,6 +18,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 
+export THIS_TTY=$(tty)
+
 ## By default these file paths are hardcoded in startx.
 ## Manually edit /bin/startx to use these vars instead.
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
