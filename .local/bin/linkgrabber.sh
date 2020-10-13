@@ -14,4 +14,4 @@ case "$0" in
 esac
 
 [ -z "$prg" ] && exit
-[ -n "$url" ] && $prg "$url"
+[ -n "$url" ] && $prg "$url" &
