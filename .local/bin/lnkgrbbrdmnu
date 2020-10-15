@@ -9,7 +9,8 @@ prg=$(printf "%s\nmpv\nfeh\nxclip\n" "$BROWSER" | dmenu -p "open with")
 
 case "$prg" in
   xclip)
-      printf "%s" "$url" | xclip -i ;;
+      printf "%s" "$url" | xclip -i
+      notify-send "'$url' copied" ;;
   *)
       $prg "$url" &
 esac
