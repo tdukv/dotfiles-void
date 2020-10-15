@@ -1,0 +1,17 @@
+#!/bin/sh
+
+regex='(((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]'
+url=$(grep -aPo "$regex" | dmenu -p "Go:") || exit
+[ -z "$url" ] && exit
+
+prg=$(printf "%s\nmpv\nfeh\nxclip\n" "$BROWSER" | dmenu -p "open with")
+[ -z "$prg" ] && exit
+
+case "$prg" in
+  xclip)
+      printf "%s" "$url" | xclip -i ;;
+  *)
+      $prg "$url" &
+esac
+
+exit 0
