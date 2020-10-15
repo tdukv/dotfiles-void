@@ -5,15 +5,9 @@
 # user running on other ttys alone.
 # Set $THIS_TTY to $(tty) at login.
 
-# If it is not set, you can still
-# pick which X to kill via dmenu.
-
-# Cancel dmenu to cancel.
-
-# pgrep can't grep by tty AFAIK
-# shellcheck disable=SC2009
-thisx=$(ps x | grep -E "^[0-9]*\s*${THIS_TTY##*/}.*xinit.*$" | dmenu -p "which x")
-
-[ -z "$thisx" ] && exit 1
-
-kill -HUP "${thisx%% *}"
+[ -z "$THIS_TTY" ] && exit 2
+thisxpid=$(pgrep -u "$USER" -t "${THIS_TTY##*/}" xinit)
+[ -z "$thisxpid" ] && exit 1
+[ "$(printf "no\nyes" | dmenu -i -p "kill $thisxpid" -wd 200 )" = "yes" ] &&
+    kill -HUP "$thisxpid"
+exit 0
