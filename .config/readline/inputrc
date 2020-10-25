@@ -9,4 +9,4 @@ set completion-query-items 200
 
 "\C-H": backward-kill-word
 C-Space: magic-space
-"\C-l": alias-expand-line
+"\C-j": alias-expand-line
