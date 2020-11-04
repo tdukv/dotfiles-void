@@ -8,6 +8,8 @@ userresources=$HOME/.config/X11/Xresources
 pywalresources=$HOME/.cache/wal/colors.Xresources
 
 export SUDO_ASKPASS="/usr/local/bin/askpass"
+export THIS_TTY=$(tty)
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 # merge in defaults and keymaps
 
