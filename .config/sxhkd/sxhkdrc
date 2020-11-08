@@ -1,6 +1,9 @@
 super + {_,shift + } {_,control +} {_,alt +} w
       rewal {_,-b} {_,-s} {_,-k}
 
+super + p
+      dmenu_run -g 3 -wd 750 -l 15 -bw 4
+
 super + Insert
       cpbshw
 
