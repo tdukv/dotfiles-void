@@ -1,7 +1,7 @@
 ! st
 st.termname: st-256color
 st.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=true
-#include "Xresources.d/st_alpha_transparent"
+#include "Xresources.d/st_alpha_transparent_90_80"
 
 
 
