@@ -10,7 +10,7 @@ all_name='[ALL]'
 mode=library
 
 d_artist() {
-    mpc list artist | sort -f | dmenu -g 3 -wd 750 -l 20 -bw 4 -i -p artist "${dmenu_args[@]}"
+    mpc list artist | sort -f | dmenu -g 3 -wd 750 -l 20 -i -p artist "${dmenu_args[@]}"
 }
 
 d_album() {
@@ -75,8 +75,10 @@ case "$mode" in
         fi
 
         mpc play >/dev/null
+        exit 0
     ;;
     playlist)
-        mpc play "$(d_playlist)" >/dev/null
+        mpc play "$(d_playlist)" >/dev/null 2>&1
+        exit 0
     ;;
 esac
