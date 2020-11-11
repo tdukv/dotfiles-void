@@ -6,3 +6,7 @@ include "~/.config/newsboat/macros"
 
 feedlist-format     "%4i%S%n %11u %t"
 articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
+error-log "~/.cache/logs/newsboat.log"
+goto-first-unread no
+goto-next-feed no
+reload-threads 5
