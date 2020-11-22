@@ -4,6 +4,9 @@ confirm-exit yes
 include "~/.config/newsboat/colors"
 include "~/.config/newsboat/macros"
 
+unbind-key A
+unbind-key ^D
+
 feedlist-format     "%4i%S%n %11u %t"
 articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
 error-log "~/.cache/logs/newsboat.log"
