@@ -14,3 +14,4 @@ alias c-w="chmod u-w"
 alias hl="highlight"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'
+alias doxfiles='/usr/bin/git --git-dir=$HOME/.local/share/.doxfiles.git/ --work-tree=$HOME'
