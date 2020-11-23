@@ -1,0 +1,17 @@
+#!/bin/sh
+
+## Host file format:
+## 'host:port # comment'
+
+hostfile="$HOME/.local/share/tremc-hosts"
+
+[ -f "$hostfile" ] || exit 2
+
+host=$(dmenu -i -p "Server?" < "$hostfile")
+
+# shellcheck disable=SC2068
+if [ -z "$host" ]; then
+    exec tremc $@
+else
+    exec tremc -c "${host%%#*}" $@
+fi
