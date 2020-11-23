@@ -5,9 +5,9 @@ case "$0" in
   *randtheme)
     theme="random_dark" ;;
   *darktheme)
-    theme="$(basename -s .json $(find /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/ -type f) | sort | dmenu -i -r)" ;;
+    theme="$(basename -s .json $(find /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/ -type f) | sort | dmenu -i -r -g 2)" ;;
   *)
-    theme="$(basename -s .json $(find ~/.config/wal/colorschemes/dark/ -type f) | sort | dmenu -i -r)" ;;
+    theme="$(basename -s .json $(find ~/.config/wal/colorschemes/dark/ -type f) | sort | dmenu -i -r -g 2)" ;;
 esac
 
 [ -z "$theme" ] && exit 0
