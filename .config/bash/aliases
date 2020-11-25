@@ -5,12 +5,7 @@ alias mkdir="mkdir -pv"
 alias g="grep -rn --color=auto"
 alias ncdu="ncdu -x --confirm-quit --color dark"
 
-alias c+x="chmod u+x"
-alias c-x="chmod u-x"
-alias c+r="chmod u+r"
-alias c-r="chmod u-r"
-alias c+w="chmod u+w"
-alias c-w="chmod u-w"
+alias +x="chmod -v u+x"
 
 alias hl="highlight"
 
