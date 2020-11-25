@@ -14,7 +14,7 @@ wal
 haishoku
 colorthief"
 
-while getopts 'bski:' c
+while getopts 'bkli:' c
 do
   case $c in
     b)
@@ -24,6 +24,7 @@ do
       beopt="--backend $b"
       ;;
     k) bgopts="-b 000000" ;;
+    l) l="l" ;;
     i) p=$OPTARG ;;
     ?) ;;
   esac
@@ -38,7 +39,7 @@ done
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
 # shellcheck disable=SC2086
-wal ${bgopts} ${beopt} -qsti "$p"
+wal ${bgopts} ${beopt} -${l}qsti "$p"
 
 updatecolors    # update dwm, st
 

@@ -1,5 +1,5 @@
 super + {_,shift + } {_,control +} {_,alt +} w
-      rewal {_,-b} {_,-s} {_,-k}
+      rewal {_,-b} {_,-l} {_,-k}
 
 super + p
       dmenu_run -g 3 -wd 750 -l 15 -bw 4
