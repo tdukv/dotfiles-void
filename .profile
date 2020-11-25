@@ -11,6 +11,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME"/elinks
+export LYNX_CFG_PATH="$XDG_CONFIG_HOME"/lynx
+export LYNX_LSS="$XDG_CONFIG_HOME"/lynx/lynx.lss
 export DTE_HOME="$XDG_CONFIG_HOME"/dte
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 
