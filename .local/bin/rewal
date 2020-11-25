@@ -3,11 +3,6 @@
 # -b (backend) option requires dmenu
 # https://tools.suckless.org/dmenu/
 
-# -s (saturation) option requires wjt
-# https://github.com/ianremmler/wjt
-# or
-# https://github.com/tdukv/wjt
-
 ## wpdir="$HOME/pics/wp/1280x800/"
 wpdir="$HOME/pics/wp/1366x768/"
 ## wpdir="$HOME/pics/wp/1920x1080/"
@@ -28,24 +23,6 @@ do
       [ -z "$b" ] && exit 0
       beopt="--backend $b"
       ;;
-    s)
-      read -r p < "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal"
-      # TODO: How to figure which backend was used last time?
-      while read -r st; do
-        s=$st
-      done <<EOT
-      $(wjt -p "saturation:" -x 75)
-EOT
-      # Convert to a decimal point format
-      [ -z "$s" ] && exit 0
-      if   [ "$s" = 100 ]; then
-          stopt="--saturate 1.0"
-      elif [ "$s" -lt 10 ]; then
-          stopt="--saturate 0.0${s}"
-      else
-          stopt="--saturate 0.${s}"
-      fi
-      ;;
     k) bgopts="-b 000000" ;;
     i) p=$OPTARG ;;
     ?) ;;
@@ -61,9 +38,9 @@ done
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
 # shellcheck disable=SC2086
-wal ${bgopts} ${beopt} ${stopt} -qsti "$p"
+wal ${bgopts} ${beopt} -qsti "$p"
 
 updatecolors    # update dwm, st
 
 pkill -u "$USER" -x dunst  # update dunst
-notify-send -i "$p" "Theme changed." "${stopt#--}\n${beopt#--}\n$(basename "$p")"
+notify-send -i "$p" "Theme changed." "${beopt#--}\n$(basename "$p")"
