@@ -62,7 +62,7 @@ XClock*secondColor: rgba:{color15.xrgba}
 ! XCalc.ti.Command.foreground: {color0}
 
 ! dwm
-dwm.normbordercolor: {background}
+dwm.normbordercolor: {color8}
 dwm.normbgcolor: {background}
 dwm.normfgcolor: {foreground}
 
