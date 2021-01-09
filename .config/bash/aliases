@@ -7,7 +7,12 @@ alias ncdu="ncdu -x --confirm-quit --color dark"
 
 alias +x="chmod -v u+x"
 
+# cp and mv with progress bar
+alias cp='/usr/local/bin/advcp -g'
+alias mv='/usr/local/bin/advmv -g'
+
 alias hl="highlight"
+alias lolcat="clolcat"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'
 alias doxfiles='/usr/bin/git --git-dir=$HOME/.local/share/.doxfiles.git/ --work-tree=$HOME'
