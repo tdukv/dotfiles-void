@@ -1,17 +1,22 @@
 # shellcheck shell=bash
 
-alias e=emacs
-alias mkdir="mkdir -pv"
-alias g="grep -rn --color=auto"
-alias ncdu="ncdu -x --confirm-quit --color dark"
-
+# Shortning
+alias e="emacs"
+alias g="grep -rn"
 alias +x="chmod -v u+x"
+alias hl="highlight"
+
+# Default options
+alias mkdir="mkdir -pv"
+alias ncdu="ncdu -x --confirm-quit --color dark"
+alias ls="ls -F --color=auto"
+alias rm="rm -I"
 
 # cp and mv with progress bar
 alias cp='/usr/local/bin/advcp -g'
 alias mv='/usr/local/bin/advmv -g'
 
-alias hl="highlight"
+# other
 alias lolcat="clolcat"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'
