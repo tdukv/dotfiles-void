@@ -1,11 +1,18 @@
 #!/bin/sh
 
-notify-send -- \
-    "Clipboard:" \
-    "$(xclip -o -selection clipboard)"
-
+# Assume no images in primary
 notify-send -- \
     "Primary:" \
-    "$(xclip -o -selection primary)"
+    "$(xclip -o -sel p)"
+
+if c="$(xclip -o -sel c)"; then                       # try text first
+    notify-send -- "Clipboard:" "$c"
+elif xclip -o -sel c -t image/png > /tmp/cb.png; then # try image
+    notify-send -i "/tmp/cb.png" "Clipboard:" ">pic"
+    rm /tmp/cb.png
+else                                                  # give up
+    notify-send -- "Could not get clipboard" "fug"
+fi
+
 
 exit 0
