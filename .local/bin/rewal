@@ -4,7 +4,6 @@
 # https://tools.suckless.org/dmenu/
 
 wproot="$HOME/pics/wp/"
-dirfile="${XDG_CACHE_HOME:-${HOME}/.cache}/wpdir"
 defaultwpdir="$HOME/pics/wp/1366x768/"
 
 
@@ -14,11 +13,13 @@ wal
 haishoku
 colorthief"
 
+read -r current < "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal"
+
 while getopts 'bkli:d' c
 do
   case $c in
     b)
-      read -r p < "${XDG_CACHE_HOME:-${HOME}/.cache}/wal/wal"
+      p="$current"
       b=$(echo "$be" | dmenu -r -i)
       [ -z "$b" ] && exit 0
       beopt="--backend $b"
@@ -26,17 +27,16 @@ do
     k) bgopts="-b 000000" ;;
     l) l="l" ;;
     i) p=$OPTARG ;;
-    d) pick="$(find "$wproot" -type d | dmenu)"
-       [ -d "$pick" ] && echo "$pick" > "$dirfile"
-       exit 0
+    d) wpdir="$(find "$wproot" -type d | dmenu)"
+       [ ! -d "$wpdir" ] && exit 1
        ;;
     ?) ;;
   esac
 done
 
 if [ -z "$p" ]; then
-    [ -f "$dirfile" ] && read -r wpdir < "$dirfile"
-    [ -d "$wpdir" ]   || wpdir="$defaultwpdir"
+    [ -z "$wpdir" ] && wpdir="$(dirname "$current")"
+    [ -d "$wpdir" ] || wpdir="$defaultwpdir"
 
     p="$(find "${wpdir}" -maxdepth 1 -type f |
          shuf |
