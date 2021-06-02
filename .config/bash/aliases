@@ -5,6 +5,7 @@ alias e="emacs"
 alias g="grep -rn"
 alias +x="chmod -v u+x"
 alias hl="highlight"
+alias scat="highlight" # syntax cat
 
 # Default options
 alias mkdir="mkdir -pv"
