@@ -48,6 +48,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Directory for AppImage packages
+if [ -d "$HOME/.local/appimage" ] ; then
+    PATH="$HOME/.local/appimage:$PATH"
+fi
+
 ### Get the aliases and functions
 ##[ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
