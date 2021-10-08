@@ -7,6 +7,9 @@ include "~/.config/newsboat/macros"
 unbind-key A
 unbind-key ^D
 
+bind-key LEFT  quit
+bind-key RIGHT open
+
 feedlist-format     "%4i%S%n %11u %t"
 articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
 error-log "~/.cache/logs/newsboat.log"
@@ -14,3 +17,4 @@ goto-first-unread no
 goto-next-feed no
 reload-threads 5
 download-timeout 90
+scrolloff 6
