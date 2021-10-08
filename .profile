@@ -2,6 +2,7 @@
 # .bash_profile
 
 export EDITOR="nano"
+export PAGER="less"
 export TERMINAL="st"
 export BROWSER="palemoon"
 
