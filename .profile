@@ -38,22 +38,13 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+[ -d "$HOME/bin" ] &&
     PATH="$HOME/bin:$PATH"
-fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+[ -d "$HOME/.local/bin" ] &&
     PATH="$HOME/.local/bin:$PATH"
-fi
 
-# Directory for AppImage packages
-if [ -d "$HOME/.local/appimage" ] ; then
+[ -d "$HOME/.local/appimage" ] &&
     PATH="$HOME/.local/appimage:$PATH"
-fi
-
-### Get the aliases and functions
-##[ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
 [ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1 && exec startx
