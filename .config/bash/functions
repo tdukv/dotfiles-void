@@ -49,3 +49,8 @@ function extr {
     done
 }
 complete -f -X '!*.@(cbt|tar.bz2|tar.gz|tar.xz|tbz2|tgz|txz|tar|lzma|bz2|cbr|rar|gz|cbz|epub|zip|z|7z|apk|arj|cab|cb7|chm|deb|dmg|iso|lzh|msi|pkg|rpm|udf|wim|xar|xz|exe|cpio|cba|ace|zpaq|arc|cso)' -o plusdirs extr
+
+mkcd () {
+    # shellcheck disable=SC2164
+    mkdir -pv "$1" && cd "$1"
+}
