@@ -1,0 +1,1 @@
+/home/totko/.cache/wal/pywal-theme.el
