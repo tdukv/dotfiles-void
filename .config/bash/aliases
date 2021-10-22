@@ -6,6 +6,8 @@ alias g="grep --exclude-dir='.git' -rnI"
 alias +x="chmod -v u+x"
 alias hl="highlight"
 alias scat="highlight" # syntax cat
+alias h="head"
+alias l="less"
 
 # Default options
 alias mkdir="mkdir -pv"
