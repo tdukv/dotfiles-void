@@ -13,9 +13,6 @@ alias ncdu="ncdu -x --confirm-quit --color dark"
 alias ls="ls -F --color=auto"
 alias rm="rm -I"
 
-# less with line numbers (and syntax highlight from $LESSOPEN)
-alias lessnl='LESSOPEN="$LESSOPEN | nl -ba" less'
-
 # cp and mv with progress bar
 alias cp='/usr/local/bin/advcp -g'
 alias mv='/usr/local/bin/advmv -g'
