@@ -6,7 +6,12 @@ set bell-style none
 set blink-matching-paren On
 set colored-completion-prefix On
 set completion-query-items 200
+set visible-stats On
+set colored-stats On
+set skip-completed-text On
+set enable-bracketed-paste On
 
 "\C-H": backward-kill-word
 C-Space: magic-space
 "\C-j": alias-expand-line
+"\e[Z": menu-complete
