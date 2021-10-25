@@ -1,10 +1,10 @@
 syntax "Inputrc" "inputrc$"
 
-color red   "\<(off|none)\>"
-color green "\<on\>"
+color red   "\<(off|Off|none)\>"
+color green "\<(on|On)\>"
 color brightblue   "\<set|\$include\>"
 color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
 color magenta     "\\.?"
-color brightblack "(^|[[:space:]])#([^{].*)?$"
+color cyan "(^|[[:space:]])#([^{].*)?$"
 color ,green "[[:space:]]+$"
 color ,red "	+ +| +	+"
