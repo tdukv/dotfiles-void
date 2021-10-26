@@ -1,0 +1,20 @@
+#!/bin/sh
+
+FIFO="/tmp/dvtm-status.$$"
+
+[ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
+
+while :; do
+    printf "[ NET:%s | TEMP:%s | BAT:%s | %s ]" \
+           "$(cat /sys/class/net/wlp3s0/operstate)" \
+           "$(sed 's/000$/°C/' /sys/class/thermal/thermal_zone?/temp |paste -sd ',')" \
+           "$(sed "s/$/%/" /sys/class/power_supply/BAT?/capacity |paste -sd ',')" \
+           "$(date "+%a %d %b %R")"
+    sleep 60
+done > "$FIFO" &
+
+STATUS_PID=$!
+dvtm -s "$FIFO" "$@" 2> /dev/null
+kill $STATUS_PID
+wait $STATUS_PID 2> /dev/null
+rm -f "$FIFO"
