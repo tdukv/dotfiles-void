@@ -5,11 +5,13 @@ FIFO="/tmp/dvtm-status.$$"
 [ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
 
 while :; do
-    printf "[ NET:%s | TEMP:%s | BAT:%s | %s ]" \
+    printf "[ M:%s | L:%s | N:%s | T:%s | B:%s | %s ]" \
+           "$(sed '/MemAvail/!d; s/[^0-9]*//g; s/...$/MB/;' /proc/meminfo)" \
+           "$(cut -d' ' -f 1,4 /proc/loadavg)" \
            "$(cat /sys/class/net/wlp3s0/operstate)" \
            "$(sed 's/000$/°C/' /sys/class/thermal/thermal_zone?/temp |paste -sd ',')" \
            "$(sed "s/$/%/" /sys/class/power_supply/BAT?/capacity |paste -sd ',')" \
-           "$(date "+%a %d %b %R")"
+           "$(date "+%R")"
     sleep 60
 done > "$FIFO" &
 
