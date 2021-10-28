@@ -22,5 +22,8 @@ alias mv='/usr/local/bin/advmv -g'
 # other
 alias lolcat="clolcat"
 
+# account for line number width in less
+alias man='man -O width=$(($COLUMNS-12))'
+
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'
 alias doxfiles='/usr/bin/git --git-dir=$HOME/.local/share/.doxfiles.git/ --work-tree=$HOME'
