@@ -14,6 +14,12 @@ alias mkdir="mkdir -pv"
 alias ncdu="ncdu -x --confirm-quit --color dark"
 alias ls="ls -F --color=auto"
 alias rm="rm -I"
+# account for line number width in less
+# Void:
+alias man='man -O width=$(($COLUMNS-12))'
+# Debian:
+# alias man='MANWIDTH=$(($COLUMNS-12)) man'
+
 
 # cp and mv with progress bar
 alias cp='/usr/local/bin/advcp -g'
@@ -21,9 +27,6 @@ alias mv='/usr/local/bin/advmv -g'
 
 # other
 alias lolcat="clolcat"
-
-# account for line number width in less
-alias man='man -O width=$(($COLUMNS-12))'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'
 alias doxfiles='/usr/bin/git --git-dir=$HOME/.local/share/.doxfiles.git/ --work-tree=$HOME'
