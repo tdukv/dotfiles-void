@@ -42,5 +42,6 @@ mpd &
 ~/.fehbg
 
 statusbar &
+xinput disable 11
 
 exec startdwm
