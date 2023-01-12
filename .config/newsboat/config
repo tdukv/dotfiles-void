@@ -9,6 +9,7 @@ unbind-key ^D
 
 bind-key LEFT  quit
 bind-key RIGHT open
+bind-key z article-feed
 
 feedlist-format     "%4i%S%n %11u %t"
 articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
