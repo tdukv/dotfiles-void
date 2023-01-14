@@ -29,6 +29,9 @@ super + shift + control + t
 XF86ScreenSaver
       slock
 
+super + l
+      slock
+
 XF86Sleep
       sudo zzz
 
