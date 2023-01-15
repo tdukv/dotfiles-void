@@ -28,5 +28,8 @@ alias mv='/usr/local/bin/advmv -g'
 # other
 alias lolcat="clolcat"
 
+# prevent getting incorect $SHLVL in graphic terminals
+alias startx="exec startx"
+
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/.dotfiles.git/ --work-tree=$HOME'
 alias doxfiles='/usr/bin/git --git-dir=$HOME/.local/share/.doxfiles.git/ --work-tree=$HOME'
