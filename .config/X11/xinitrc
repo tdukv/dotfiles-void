@@ -42,6 +42,6 @@ mpd &
 ~/.fehbg
 
 statusbar &
-xinput disable 11
+xinput disable "$(xinput | grep TouchPad | grep -o "id=\S*" | cut -d'=' -f2)"
 
 exec startdwm
