@@ -52,4 +52,5 @@ wal ${bgopts} ${beopt} -${l}qsti "$p"
 updatecolors    # update dwm, st
 
 pkill -u "$USER" -x dunst  # update dunst
-notify-send -i "$p" "Theme changed." "${beopt#--}\n$(basename "$p")"
+res="$(identify  -format "%wx%h" "$p")"
+notify-send -i "$p" "Theme changed." "${beopt#--}\n$(basename "$p")\n${res}"
