@@ -10,6 +10,7 @@ pywalresources=$HOME/.cache/wal/colors.Xresources
 export SUDO_ASKPASS="/usr/local/bin/askpass"
 export THISX_TTY=$(tty)
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export TWORLDSAVEDIR="$XDG_DATA_HOME"/tworld/
 
 # merge in defaults and keymaps
 
