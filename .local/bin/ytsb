@@ -9,6 +9,8 @@ urlsfile="${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls"
 
 url="$(xclip -o -selection primary)"
 
+[ -z "$url" ] && die 2 "nothing copied"
+
 case "$url" in
 *youtube.com*)
   id=$(curl -s "$url" 2>/dev/null |
