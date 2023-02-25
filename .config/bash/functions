@@ -54,3 +54,14 @@ mkcd () {
     # shellcheck disable=SC2164
     mkdir -pv "$1" && cd "$1"
 }
+
+fnd () {
+    sp="${2:-.}"
+    case "$1" in
+        ^*$) ex="${1#^}" ; ex="${ex%$}" ;;
+        ^*)  ex="${1#^}*"  ;;
+        *$)  ex="*${1%$}"  ;;
+        *)   ex="*${1}*"   ;;
+    esac
+    find "$sp" -iname "$ex"
+}
