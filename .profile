@@ -10,6 +10,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
+[ "$XDG_RUNTIME_DIR" ] ||
+    XDG_RUNTIME_DIR=$(mktemp -d /tmp/runtime-dir-XXXXXX) &&
+        export XDG_RUNTIME_DIR
+
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME"/elinks
 export LYNX_CFG_PATH="$XDG_CONFIG_HOME"/lynx
