@@ -20,6 +20,7 @@ export LYNX_CFG_PATH="$XDG_CONFIG_HOME"/lynx
 export LYNX_LSS="$XDG_CONFIG_HOME"/lynx/lynx.lss
 export DTE_HOME="$XDG_CONFIG_HOME"/dte
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo

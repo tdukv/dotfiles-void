@@ -14,7 +14,6 @@ alias mkdir="mkdir -pv"
 alias ncdu="ncdu -x --confirm-quit --color dark"
 alias ls="ls -F --color=auto"
 alias rm="rm -I"
-alias wget='wget --hsts-file="$HOME/.local/share/wget/wget-hsts"' # avoid clutter in ~/
 # account for line number width in less
 # Void:
 alias man='man -O width=$(($COLUMNS-12))'
