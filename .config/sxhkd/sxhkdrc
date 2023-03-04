@@ -13,10 +13,10 @@ super + shift + v
 super + shift + y
       ytsb
 
-super + {_,shift + } j
-      mpdmenu {_,-p}
+super + {_,shift,control + } j
+      mpdmenu {_,-p,-a}
 
-super + control +  j
+super + alt +  j
       mpcseek
 
 super + shift + control + t

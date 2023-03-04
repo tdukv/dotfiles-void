@@ -17,7 +17,12 @@ d_album() {
     local artist="$1"
     local albums
 
-    mapfile -t albums < <(mpc list album artist "$artist")
+    if [ "$artist" ] ; then
+        mapfile -t albums < <(mpc list album artist "$artist")
+    else
+        mapfile -t albums < <(mpc list album)
+    fi
+
     if (( ${#albums[@]} > 1 )) ; then
         {
             printf '%s\n' "$all_name"
@@ -53,9 +58,11 @@ for arg do
 
     case "$arg" in
         -l) mode=library ;;
+        -a) mode=album ;;
         -p) mode=playlist ;;
     esac
 
+# shellcheck disable=SC2219
     let i++
 done
 
@@ -63,11 +70,19 @@ case "$mode" in
     library)
         artist=$(d_artist)
         [[ $artist ]] || exit 1
-
+    ;& # fallthrough
+    album)
         album=$(d_album "$artist")
         [[ $album ]] || exit 2
 
         mpc clear
+
+        if [ -z "$artist" ] ; then
+            mpc find  album "$album" | sort | mpc add
+
+            mpc play >/dev/null
+            exit 0
+        fi
         if [[ $album == "$all_name" ]]; then
             mpc find artist "$artist" | sort | mpc add
         else
