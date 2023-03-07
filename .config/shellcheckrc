@@ -1,0 +1,4 @@
+enable=add-default-case
+enable=check-set-e-suppressed
+enable=deprecate-which
+
