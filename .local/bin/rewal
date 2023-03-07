@@ -27,7 +27,7 @@ do
     k) bgopts="-b 000000" ;;
     l) l="l" ;;
     i) p=$OPTARG ;;
-    d) wpdir="$(find "$wproot" -type d | dmenu)"
+    d) wpdir="$(find "$wproot" -type d | sort | dmenu)"
        [ ! -d "$wpdir" ] && exit 1
        ;;
     ?) ;;
