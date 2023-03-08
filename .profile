@@ -29,6 +29,7 @@ export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 ## Manually edit /bin/startx to use these vars instead.
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 export HIGHLIGHT_OPTIONS="--force -O ansi"
 
