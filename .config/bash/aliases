@@ -14,6 +14,8 @@ alias mkdir="mkdir -pv"
 alias ncdu="ncdu -x --confirm-quit --color dark"
 alias ls="ls -F --color=auto"
 alias rm="rm -I"
+alias cal="cal -m" # weeks start on monday
+
 # account for line number width in less
 # Void:
 alias man='man -O width=$(($COLUMNS-12))'
