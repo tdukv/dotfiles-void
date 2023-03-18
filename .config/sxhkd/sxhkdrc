@@ -22,6 +22,9 @@ super + alt +  j
 super + shift + control + t
       termalpha
 
+shift + Caps_Lock
+      pkill -x -RTMIN+6 dwmblocks
+
 ##### PM
 XF86ScreenSaver
       slock
@@ -36,49 +39,49 @@ XF86Suspend
       sudo ZZZ
 
 shift + XF86Launch1
-        [ "$(printf "No\\nYes" | dmenu -i -p "Shutdown?")" = "Yes" ] && sudo runit-init 0
+      [ "$(printf "No\\nYes" | dmenu -i -p "Shutdown?")" = "Yes" ] && sudo runit-init 0
 
 
 ##### Screenshot
 {_,alt +,control + } Print
-       screenshot  {_,-w,-s}
+      screenshot  {_,-w,-s}
 
 
 ##### Audio
 {_,alt + } XF86AudioLowerVolume
-	pamixer --allow-boost -d {4,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
+      pamixer --allow-boost -d {4,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 {_,alt + } XF86AudioRaiseVolume
-	pamixer --allow-boost -i {4,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
+      pamixer --allow-boost -i {4,1} && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 XF86AudioMute
-	pamixer --allow-boost -t       && pkill -u "$USER" -x -RTMIN+12 dwmblocks
+      pamixer --allow-boost -t       && pkill -u "$USER" -x -RTMIN+12 dwmblocks
 
 ##### MPD
 XF86AudioPrev
-	mpc prev
+      mpc prev
 
 XF86AudioPlay
-	mpc toggle
+      mpc toggle
 
 XF86AudioStop
-	mpc stop
+      mpc stop
 
 XF86AudioNext
-	mpc next
+      mpc next
 
 shift + XF86AudioPrev
-	mpc seek -5
+      mpc seek -5
 
 shift + XF86AudioNext
-	mpc seek +5
+      mpc seek +5
 
 #####
 XF86MonBrightnessUp
-	xbacklight +5 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
+      xbacklight +5 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
 
 XF86MonBrightnessDown
-	xbacklight -5 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
+      xbacklight -5 && pkill -u "$USER" -x -RTMIN+15 dwmblocks
 
 shift + XF86MonBrightnessUp
       brghtness
