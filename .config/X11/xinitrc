@@ -45,4 +45,6 @@ mpd &
 statusbar &
 xinput disable "$(xinput | grep TouchPad | grep -o "id=\S*" | cut -d'=' -f2)"
 
+autorandr --change
+
 exec startdwm
