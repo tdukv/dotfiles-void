@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck source=/dev/null
 
 # Should only stop the 'current' X,
 # and leave other users or the same
@@ -8,6 +9,10 @@
 [ -z "$THISX_TTY" ] && exit 2
 thisxpid=$(pgrep -u "$USER" -t "${THISX_TTY##*/}" xinit)
 [ -z "$thisxpid" ] && exit 1
-[ "$(printf "no\nyes" | dmenu -i -p "kill $thisxpid" -wd 200 -g 2 -l 1)" = "yes" ] &&
+
+answer="$(printf "no\nyes" | dmenu -i -p "kill $thisxpid" -wd 200 -g 2 -l 1)"
+if [ "$answer" = "yes" ] ; then
     kill -HUP "$thisxpid"
+    [ -r "$HOME"/.bash_logout ] && . "$HOME"/.bash_logout
+fi
 exit 0
