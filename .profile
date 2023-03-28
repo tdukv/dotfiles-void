@@ -21,6 +21,8 @@ export LYNX_LSS="$XDG_CONFIG_HOME"/lynx/lynx.lss
 export DTE_HOME="$XDG_CONFIG_HOME"/dte
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
+export XFILES_THUMBNAILDIR="$XDG_CACHE_HOME"/xfiles
+export OPENER=opn
 
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
