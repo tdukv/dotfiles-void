@@ -13,6 +13,8 @@ for f in "$@" ; do
             "$browser" "$f"                     ;;
         text/*)
             "$term" -e "$pager" "$f"            ;;
+        image/gif)
+            nsxiv -a "$f"                       ;;
         image/*)
             nsxiv "$f"                          ;;
         video/*)
