@@ -1,0 +1,27 @@
+#!/bin/sh
+
+term=${TERMCMD:-st}
+pager=${PAGER:-less}
+browser=${BROWSER:-firefox}
+
+for f in "$@" ; do
+# shellcheck disable=SC2015
+    [ -f "$f" ] && [ -r "$f" ] || continue
+    type="$(file -b --mime-type "$f")"
+    case "$type" in
+        text/html)
+            "$browser" "$f"                     ;;
+        text/*)
+            "$term" -e "$pager" "$f"            ;;
+        image/*)
+            nsxiv "$f"                          ;;
+        video/*)
+            mpv "$f"                            ;;
+        audio/*)
+            "$term" -e mpv "$f"                 ;;
+        */pdf)
+            mupdf "$f"                          ;;
+        *)
+            notify-send "unknown type:" "$type" ;;
+    esac
+done
