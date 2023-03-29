@@ -108,6 +108,13 @@ Xmessage*Command.borderColor:         {color6}
 Xmessage*Command.background:          {background}
 Xmessage*Command.foreground:          {color6}
 
+! xfiles
+XFiles.background:      {background}
+XFiles.foreground:      {foreground}
+XFiles.opacity:         0.9
+XFiles.selbackground:   {color4}
+XFiles.selforeground:   {color0}
+
 ! xcalc
 xcalc*ti.background: {background}
 xcalc*ti.bevel.borderColor: {color8}
