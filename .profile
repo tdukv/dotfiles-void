@@ -23,6 +23,7 @@ export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export WGETRC="$XDG_CONFIG_HOME"/wgetrc
 export XFILES_THUMBNAILDIR="$XDG_CACHE_HOME"/xfiles
 export OPENER=opn
+export STEL_USERDIR="$XDG_DATA_HOME"/stellarium/
 
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
