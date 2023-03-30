@@ -2,5 +2,5 @@
 
 regex='(((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]'
 
-url=$(grep -aPo "$regex" | dmenu -p "Go:") || exit
+url=$(grep -aPo "$regex" | dmenu -i -p "Go:") || exit
 [ -n "$url" ] && $BROWSER "$url"
