@@ -10,3 +10,4 @@ xmenu.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=t
 
 #include "Xresources.d/Xmessage"
 #include "Xresources.d/Xcalc"
+#include "Xresources.d/Xfiles"
