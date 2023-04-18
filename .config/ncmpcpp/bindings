@@ -564,3 +564,9 @@ def_key "v"
 
 def_key "b"
   next
+
+def_key "n"
+  next_found_item
+
+def_key "N"
+  previous_found_item

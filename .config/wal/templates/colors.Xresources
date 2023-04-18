@@ -106,7 +106,7 @@ Xmessage*Text.borderColor:            {color6}
 Xmessage*Text*background:             {background}
 Xmessage*Command.borderColor:         {color6}
 Xmessage*Command.background:          {background}
-Xmessage*Command.foreground:          {color6}
+Xmessage*Command.foreground:          {foreground}
 
 ! xfiles
 XFiles.background:      {background}

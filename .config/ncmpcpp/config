@@ -338,7 +338,7 @@ mpd_music_dir = ~/music
 #
 #playlist_shorten_total_times = no
 #
-#playlist_separate_albums = no
+playlist_separate_albums = yes
 #
 ##
 ## Note: Possible display modes: classic, columns.
@@ -369,7 +369,7 @@ mpd_music_dir = ~/music
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-#progressbar_look = =>
+progressbar_look = =>-
 #
 ## Available values: database, playlist.
 ##
@@ -488,7 +488,7 @@ mpd_music_dir = ~/music
 #
 #display_volume_level = yes
 #
-#display_bitrate = no
+display_bitrate = yes
 #
 #display_remaining_time = no
 #
