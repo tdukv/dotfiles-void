@@ -11,7 +11,7 @@ for f in "$@" ; do
     case "$type" in
         text/html)
             "$browser" "$f"                     ;;
-        text/*)
+        text/*|*/json)
             "$term" -e "$pager" "$f"            ;;
         image/gif)
             nsxiv -a "$f"                       ;;
