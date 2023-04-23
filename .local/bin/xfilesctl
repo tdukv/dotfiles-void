@@ -2,7 +2,7 @@
 
 PROMPTCMD="${PROMPTCMD:-"dmenu"}"
 MENUCMD="${MENUCMD:-"xmenu"}"
-TERMCMD="${TERMCMD:-"xterm"}"
+TERMCMD="${TERMCMD:-"st"}"
 EDITOR="${EDITOR:-"${VISUAL:-"vi"}"}"
 
 term() {
@@ -25,7 +25,7 @@ dialog() {
 			printf "Link? [y/N] "
 			;;
 		("rm")
-			printf "Send to trash? [y/N] "
+			printf "Delete? [y/N] "
 			;;
 		esac
 		read -r arg
@@ -44,7 +44,7 @@ dialog() {
 			ln -s "$@" .
 			;;
 		("rm")
-			trash "$@"
+			rm -v "$@"
 			;;
 		esac
 	' xfilesctl "$@"
@@ -138,7 +138,7 @@ filemenu() {
 	"$MENUCMD" <<-EOF
 		rename
 		snarf
-		trash
+		remove
 		edit
 	EOF
 	)" in
@@ -148,7 +148,7 @@ filemenu() {
 	("snarf")
 		snarf "$@"
 		;;
-	("trash")
+	("remove")
 		dialog "rm" "$@"
 		;;
 	("edit")
