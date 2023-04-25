@@ -27,10 +27,10 @@ shift + Caps_Lock
 
 ##### PM
 XF86ScreenSaver
-      slock
+      xkblayout-state set 0 ; pkill -x -RTMIN+6 dwmblocks ; slock
 
 super + l
-      slock
+      xkblayout-state set 0 ; pkill -x -RTMIN+6 dwmblocks ; slock
 
 XF86Sleep
       sudo zzz
