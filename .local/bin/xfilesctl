@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROMPTCMD="${PROMPTCMD:-"dmenu"}"
+PROMPTCMD="${PROMPTCMD:-"cdmenu"}"
 MENUCMD="${MENUCMD:-"xmenu"}"
 TERMCMD="${TERMCMD:-"st"}"
 EDITOR="${EDITOR:-"${VISUAL:-"vi"}"}"
@@ -116,6 +116,9 @@ dirmenu() {
 		move
 		link
 		term
+
+		IMG:/usr/share/icons/hicolor/16x16/apps/nsxiv.png	nsxiv
+		IMG:/usr/share/icons/hicolor/16x16/apps/mpv.png	mpv
 	EOF
 	)" in
 	("copy")
@@ -129,6 +132,12 @@ dirmenu() {
 		;;
 	("term")
 		"$TERMCMD" &
+		;;
+	("nsxiv")
+		nsxiv . &
+		;;
+	("mpv")
+		mpv . &
 		;;
 	esac
 }
@@ -196,7 +205,7 @@ case "$operation" in
 	;;
 (^[LlGg])
 	# call dmenu to go somewhere
-	newdir="$("$PROMPTCMD" -w "$WINDOWID" </dev/null)" && \
+	newdir="$("$PROMPTCMD" </dev/null)" && \
 	changedir "$newdir"
 	;;
 (^[Cc])
