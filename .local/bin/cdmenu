@@ -1,0 +1,25 @@
+#!/bin/sh
+
+depth=1
+
+if [ "$1" ] && [ -d "$1" ] ; then
+    start=$1
+    shift
+fi
+
+if [ "$1" ] && [ "$1" -gt 0 ] 2>/dev/null ; then
+    depth=$1
+    shift
+fi
+
+if [ "$start" ] ; then
+    cd "$start" || exit 1
+fi
+
+while :; do
+    sel="$( (printf "\n..\n" && find . -maxdepth "$depth" -mindepth 1 -type d 2>/dev/null) | dmenu -p "$PWD/" "$@" )"
+    [ -z "$sel" ] && break
+    [ -d "$sel" ] && cd "$sel" || exit 1
+done
+
+printf "%s\n" "$PWD"
