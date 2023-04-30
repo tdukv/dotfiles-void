@@ -23,4 +23,7 @@ XFiles.fileIcons:                \n\
         ~/pics/=images_dir       \n\
         ~/src/=code_dir          \n\
         ~/.config/=config_dir    \n\
-        ~/video/=videos_dir
+        ~/video/=videos_dir      \n\
+        /media/=mount_dir        \n\
+        /etc/=config_dir         \n\
+        /home/=home_dir
