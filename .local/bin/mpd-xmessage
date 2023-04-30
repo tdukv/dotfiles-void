@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# ASCII
+play=" |> "
+paus=" || "
+stop=" [] "
+prev=" |< "
+next=" >| "
+quit=" X "
+l="43"
+
+## Unicode
+#play=" ▶️ "
+#paus=" ⏸️ "
+#stop=" ⏹️ "
+#prev=" ⏮️ "
+#next=" ⏭️ "
+#quit=" 🚫 "
+#l="38"
+
+cur="$(mpc current | cut -c 1-$l)"
+sel="$(printf "%-${l}s" "$cur" | \
+       xmessage -nearmouse \
+                -buttons "$prev,$play,$paus,$stop,$next,$quit" \
+                 -print -file -)"
+
+[ -z "$sel" ] && exit 0
+
+case "$sel" in
+    "$play") mpc play ;;
+    "$paus") mpc pause ;;
+    "$stop") mpc stop ;;
+    "$prev") mpc prev ;;
+    "$next") mpc next ;;
+    *) ;;
+esac
+
+exit 0
