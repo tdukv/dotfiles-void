@@ -1,11 +1,23 @@
 ! Font
-XFiles.faceName:                Liberation Mono-11
+XFiles.faceName:                Liberation Mono
+XFiles.faceSize:                13
 
 ! Background transparency (requires X11 compositor)
 XFiles.opacity:                 0.9
 
 ! Icons for XDG user directories
 XFiles.fileIcons:                \n\
+        *.wav=audio              \n\
+        *.c=code                 \n\
+        *.h=code                 \n\
+        *.css=code               \n\
+        *.html=code              \n\
+        *.json=code              \n\
+        *.sh=code                \n\
+        *.el=code                \n\
+        *.diff=code              \n\
+        *.patch=code             \n\
+        *.log=document           \n\
         ~/dl/=downloads_dir      \n\
         ~/music/=music_dir       \n\
         ~/pics/=images_dir       \n\
