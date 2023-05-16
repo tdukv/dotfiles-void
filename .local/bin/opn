@@ -10,7 +10,7 @@ for f in "$@" ; do
     type="$(file -b --mime-type "$f")"
     case "$type" in
         text/html)
-            "$browser" "$f"                     ;;
+            "$browser" "$(realpath "$f")"       ;;
         text/*|*/json)
             "$term" -e "$pager" "$f"            ;;
         image/gif)
