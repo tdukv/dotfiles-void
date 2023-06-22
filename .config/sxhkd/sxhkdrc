@@ -1,6 +1,9 @@
 super + {_,shift + } {_,control +} {_,alt +} w
       rewal {_,-b} {_,-l} {_,-k}
 
+super + e
+      xfiles
+
 super + Insert
       cpbshw
 
