@@ -13,6 +13,15 @@ export XDG_DATA_HOME="$HOME/.local/share"
 XDG_RUNTIME_DIR=$(mktemp -d /tmp/runtime-dir-XXXXXX) &&
     export XDG_RUNTIME_DIR
 
+export XDG_DESKTOP_DIR="/tmp"
+export XDG_DOWNLOAD_DIR="$HOME/dl"
+export XDG_TEMPLATES_DIR="/tmp"
+export XDG_PUBLICSHARE_DIR="/tmp"
+export XDG_DOCUMENTS_DIR="/tmp"
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_PICTURES_DIR="$HOME/pics"
+export XDG_VIDEOS_DIR="/tmp"
+
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME"/elinks
 export LYNX_CFG_PATH="$XDG_CONFIG_HOME"/lynx
