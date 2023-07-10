@@ -514,6 +514,9 @@ case "$operation" in
 	# copy snarfed files
 	paste "cp"
 	;;
+(^[Tt])
+	term
+	;;
 (^Delete)
 	delete "$@"
 	;;
