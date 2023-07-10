@@ -26,11 +26,11 @@
 ask=true
 
 # default paths
-TRASH="${TRASH:-"${XDG_DATA_HOME:-"$HOME/.local/share"}/Trash"}"
 
 # default commands
 OPENER="${OPENER:-"xdg-open"}"
 EDITOR="${EDITOR:-"${VISUAL:-"vi"}"}"
+TERMINAL="${TERMINAL:-"st"}"
 
 # print error message
 warn() {
@@ -60,7 +60,7 @@ newwin() {
 
 # open terminal window running given command
 term() {
-	xterm &
+	$TERMINAL &
 }
 
 # open given files (on background, so xfiles not wait)
@@ -70,7 +70,7 @@ open() {
 
 # open text editor on given file
 edit() {
-	xterm -into "$WINDOWID" -bw 0 -e "$EDITOR" -- "$@"
+	$TERMINAL -into "$WINDOWID" -bw 0 -e "$EDITOR" -- "$@"
 }
 
 # open dialog asking for confirmation ("$1" is the prompt, rest are filenames)
@@ -141,80 +141,23 @@ link() {
 
 # send files to trash if user confirms dialog
 trash() {
-	case $# in (0) return ;; esac
-	dialog "Send files to trash?" "$@" || return
-	# shellcheck disable=SC2174
-	mkdir -m 700 -p -- "$TRASH/files" "$TRASH/info" || exit 1
-	for file
-	do
-		test -e "$file" || continue
-
-		# get unique target
-		setuniquepath "$TRASH/files/${file##*/}"
-
-		# move file to trash and write trash information
-		mv -- "$file" "$uniquepath" && \
-		cat > "$TRASH/info/${uniquepath##*/}.trashinfo" <<-END
-			[Trash Info]
-			Path=$file
-			DeletionDate=$(date +"%FT%H:%M:%S")
-		END
-	done
+	delete
 }
 
 # restore files from trash if user confirms dialog
 untrash() {
-	case $# in (0) return ;; esac
-
-	# compose dialog message
-	msg="Restore files from trash?"
-	for file
-	do
-		shift
-		basename="${file##*/}"
-		infofile="$TRASH/info/$basename.trashinfo"
-		origfile="$(sed -En '/^[[:blank:]]*Path[[:blank:]]*=/{s/.*=[[:blank:]]*//;p;q;}' < "$infofile")"
-		if test -e "$origfile"
-		then
-			warn "$basename: file already exists on original directory"
-		else
-			set -- "$file" "$origfile" "$infofile"
-			msg="$msg
-	$origfile"
-		fi
-	done
-
-	dialog "$msg" || return
-
-	while test $# -gt 0
-	do
-		file="$1"
-		origfile="$2"
-		infofile="$3"
-		shift 3
-		mv -- "$file" "$origfile" && rm -- "$infofile"
-	done
+	:
 }
 
 # rm file if user confirms dialog (if at trash, also remove info file)
 delete() {
 	dialog "Delete files permanently?" "$@" || return
 	rm -rf -- "$@"
-	case "$PWD" in
-	("$TRASH/files")
-		for file
-		do
-			rm -rf -- "$TRASH/info/${file##*/}.trashinfo"
-		done
-		;;
-	esac
 }
 
 # delete all files in trash can
 emptytrash() {
-	dialog "Empty trash?" || return
-	rm -rf "$TRASH/files/"*
-	rm -rf "$TRASH/info/"*
+	:
 }
 
 # save file paths into clipboard
@@ -418,7 +361,6 @@ open
 	xfiles
 	term
 	random
-$(case "$PWD" in ("$TRASH/files") printf 'empty trash' ;; (*) printf 'trash can' ;; esac)
 EOF
 	} | menu | {
 		read -r option
@@ -444,12 +386,6 @@ EOF
 		("link")
 			paste "ln" "$@"
 			;;
-		("empty trash")
-			emptytrash
-			;;
-		("trash can")
-			changedir "$TRASH/files"
-			;;
 		("random")
 			random
 			;;
@@ -466,17 +402,11 @@ EOF
 # context menu for selected files
 filemenu() {
 	case "$PWD" in
-	("$TRASH/files")
-		cat <<-EOF
-		untrash
-		delete
-		EOF
-		;;
 	(*)
 		cat <<-EOF
 		rename
 		snarf
-		trash
+		delete
 		edit
 		EOF
 		;;
@@ -491,9 +421,6 @@ filemenu() {
 			;;
 		("delete")
 			delete "$@"
-			;;
-		("trash")
-			trash "$@"
 			;;
 		("untrash")
 			untrash "$@"
@@ -579,15 +506,6 @@ case "$operation" in
 	paste "cp"
 	;;
 (^Delete)
-	case "$PWD" in
-	("$TRASH/files")
-		# delete files from trash
-		delete "$@"
-		;;
-	(*)
-		# send files to trash
-		trash "$@"
-		;;
-	esac
+	delete "$@"
 	;;
 esac
