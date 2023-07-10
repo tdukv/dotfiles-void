@@ -361,6 +361,9 @@ open
 	xfiles
 	term
 	random
+
+IMG:/usr/share/icons/hicolor/16x16/apps/nsxiv.png	nsxiv
+IMG:/usr/share/icons/hicolor/16x16/apps/mpv.png	mpv
 EOF
 	} | menu | {
 		read -r option
@@ -394,6 +397,12 @@ EOF
 			;;
 		("xfiles")
 			newwin
+			;;
+		("nsxiv")
+			nsxiv . &
+			;;
+		("mpv")
+			mpv . &
 			;;
 		esac
 	}
