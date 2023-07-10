@@ -565,6 +565,9 @@ def_key "v"
 def_key "b"
   next
 
+def_key "s"
+  toggle_random
+
 def_key "n"
   next_found_item
 
