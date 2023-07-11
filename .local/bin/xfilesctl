@@ -26,6 +26,7 @@
 ask=true
 
 # default paths
+BOOKMARKDIR="${XDG_DATA_HOME:-$HOME/.local/share}/xfiles/bookmarks"
 
 # default commands
 OPENER="${OPENER:-"xdg-open"}"
@@ -320,6 +321,24 @@ urlbar() {
 	}
 }
 
+# bookmarks
+newbm() {
+	[ -d "$BOOKMARKDIR" ] || mkdir -p "$BOOKMARKDIR"
+	category=$(
+	for f in "$BOOKMARKDIR"/* ; do
+		basename "$f"
+	done | dmenu -p "Add to category" )
+	grep -qsF "${PWD}" -- "$BOOKMARKDIR"/"$category" || printf "%s\n" "${PWD}" >> "$BOOKMARKDIR"/"$category"
+}
+
+getbm() {
+	category=$(
+	for f in "$BOOKMARKDIR"/* ; do
+		basename "$f"
+	done | dmenu -p "Get from category" )
+	changedir "$(dmenu < "$BOOKMARKDIR"/"$category")"
+}
+
 # pop-up menu for file dropping
 dropmenu() {
 	{
@@ -513,6 +532,14 @@ case "$operation" in
 (^[Vv])
 	# copy snarfed files
 	paste "cp"
+	;;
+(^[Mm])
+	# Bookmark current dir
+	newbm
+	;;
+(^[Bb])
+	# Go to bookmark
+	getbm
 	;;
 (^[Tt])
 	term
