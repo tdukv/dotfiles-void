@@ -40,11 +40,11 @@ sxhkd &
 # picom --experimental-backends & #--transparent-clipping &
 picom &
 mpd &
-~/.fehbg
 
 statusbar &
 xinput disable "$(xinput | grep TouchPad | grep -o "id=\S*" | cut -d'=' -f2)"
 
 autorandr --change
+~/.fehbg
 
 exec startdwm
