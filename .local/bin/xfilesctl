@@ -544,6 +544,10 @@ case "$operation" in
 (^[Tt])
 	term
 	;;
+(^[Qq])
+	pid="$(xprop -id "$WINDOWID" | sed '/PID/!d; s/[^0-9]//g')"
+	[ "$(ps -h -o command "$pid")" = xfiles ] && kill -HUP "$pid"
+	;;
 (^Delete)
 	delete "$@"
 	;;
