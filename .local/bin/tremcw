@@ -9,9 +9,8 @@ hostfile="$HOME/.local/share/tremc-hosts"
 
 host=$(dmenu -i -p "Server?" < "$hostfile")
 
-# shellcheck disable=SC2068
 if [ -z "$host" ]; then
-    exec tremc $@
+    exec tremc "$@"
 else
-    exec tremc -c "${host%%#*}" $@
+    exec tremc -c "${host%%#*}" "$@"
 fi
