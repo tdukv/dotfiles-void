@@ -64,4 +64,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 [ -d "$HOME/.local/appimage" ] &&
     PATH="$HOME/.local/appimage:$PATH"
 
+umask 027
+
 [ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1 && exec startx
