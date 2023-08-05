@@ -38,7 +38,7 @@ if [ -z "$p" ]; then
     [ -z "$wpdir" ] && wpdir="$(dirname "$current")"
     [ -d "$wpdir" ] || wpdir="$defaultwpdir"
 
-    p="$(find "${wpdir}" -maxdepth 1 -type f |
+    p="$(find -L "${wpdir}" -maxdepth 1 -type f |
          shuf |
          sxiv -ifot |
          head -1)"

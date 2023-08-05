@@ -8,6 +8,8 @@ alias hl="highlight"
 alias scat="highlight" # syntax cat
 alias h="head"
 alias l="less"
+alias ..='cd ..'
+alias ytdlp="yt-dlp"
 
 # Default options
 alias mkdir="mkdir -pv"

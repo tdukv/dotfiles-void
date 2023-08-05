@@ -17,7 +17,7 @@ for f in "$@" ; do
             nsxiv -a "$f"                       ;;
         image/*)
             nsxiv "$f"                          ;;
-        video/*)
+        video/*|*/octet-stream)
             mpv "$f"                            ;;
         audio/*)
             "$term" -e mpv "$f"                 ;;
