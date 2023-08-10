@@ -5,7 +5,7 @@ dest=${XDG_DOWNLOAD_DIR:-$HOME/dl}/rssdl/$(date "+%y%m%d")
 
 case "$url" in
     *youtube.com*)
-        mkdir -p "$dir"
+        mkdir -p "$dest"
         $TERMINAL -e yt-dlp -P "$dest" -f "(bestvideo[height<=?1080]+bestaudio/best)" "$url" &
         ;;
     ### add other sites

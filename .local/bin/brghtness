@@ -9,6 +9,6 @@ init=$(xbacklight)
 
 [ -z "$init" ] && exit 1
 
-wjt -p "Brightness" -x "${init%%.*}" -j 5 | while read -r val; do
+wjt -p "Brightness" -x "${init%%.*}" -j 5 "$@" | while read -r val; do
     xbacklight -set "$val"
 done
