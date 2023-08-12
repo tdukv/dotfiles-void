@@ -44,6 +44,10 @@ err() {
 	exit 1
 }
 
+err_notify() {
+    notify-send -- "xfilesctl" "$*"
+}
+
 # open mouse-based menu containing entries from stdin
 menu() {
 	xmenu
@@ -272,6 +276,23 @@ rename() {
 	} 2>/dev/null
 }
 
+# rename files in dmenu
+rename_dmenu() {
+    # Batch renaming not supported
+    [ $# -ne 1 ] && return
+
+    source=$(basename "$1")
+    dest=$(dmenu -p "Rename" -it "$source" < /dev/null)
+    [ -z "$dest" ] && return
+    [ "$source" = "$dest" ] && return
+    if [ -e "$dest" ]; then
+        err_notify "Rename: file exists"
+        return
+    fi
+
+    mv -- "$source" "$dest"
+}
+
 # create directories named on text editor
 makedir() {
 	unset -v tempfile
@@ -283,6 +304,11 @@ makedir() {
 		mkdir -p "$dir"
 	done <"$tempfile"
 	rm "$tempfile"
+}
+# create directories named on dmenu
+makedir_dmenu() {
+	dir=$(dmenu -p "create dir" < /dev/null)
+	[ "$dir" ] && mkdir -p "$dir"
 }
 
 # open random file in current directory
@@ -376,6 +402,7 @@ paste
 	move
 	link
 go up
+mkdir
 open
 	xfiles
 	term
@@ -407,6 +434,9 @@ EOF
 			;;
 		("link")
 			paste "ln" "$@"
+			;;
+		("mkdir")
+			makedir_dmenu
 			;;
 		("random")
 			random
@@ -442,7 +472,7 @@ filemenu() {
 		read -r option
 		case "$option" in
 		("rename")
-			rename "$@"
+			rename_dmenu "$@"
 			;;
 		("snarf")
 			snarf "$@"
@@ -511,7 +541,7 @@ case "$operation" in
 	;;
 (^F2)
 	# rename files on text editor
-	rename "$@"
+	rename_dmenu "$@"
 	;;
 (^F5|^[Rr])
 	# cd to where we are just to refresh
