@@ -9,14 +9,15 @@ alias scat="highlight" # syntax cat
 alias h="head"
 alias l="less"
 alias ..='cd ..'
-alias ytdlp="yt-dlp"
 
 # Default options
 alias mkdir="mkdir -pv"
 alias ncdu="ncdu -x --confirm-quit --color dark"
 alias ls="ls -F --color=auto"
 alias rm="rm -I"
+alias dd="dd bs=4k status=progress"
 alias cal="cal -m" # weeks start on monday
+alias ytdlp="yt-dlp --continue"
 
 # account for line number width in less
 # Void:

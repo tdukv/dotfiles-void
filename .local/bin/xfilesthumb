@@ -22,7 +22,7 @@ case "$2" in
 esac
 
 case "${1##*.}" in
-png|jpg|jpeg|gif|xpm|xbm|ppm|webp|bmp|JPEG)
+png|jpg|jpeg|gif|xpm|xbm|ppm|webp|bmp|JPEG|JPG|heic)
 	convert "${1}[0]" -background "$BACKGROUND" -flatten \
 		-define filename:literal=true -format ppm \
 		-thumbnail "${THUMBSIZE}x${THUMBSIZE}" \
