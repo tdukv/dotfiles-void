@@ -25,6 +25,8 @@ alias man='man -O width=$(($COLUMNS-12))'
 # Debian:
 # alias man='MANWIDTH=$(($COLUMNS-12)) man'
 
+# pip virtual environment
+alias pipenv='source $HOME/.local/pip.venv/bin/activate'
 
 # cp and mv with progress bar
 alias cp='/usr/local/bin/advcp -g'
