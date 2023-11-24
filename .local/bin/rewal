@@ -46,6 +46,9 @@ fi
 
 [ -z "$p" ] && notify-send "Nothing selected." && exit 0
 
+# Use the pip version for other backends
+[ "$beopt" ] && . "$HOME/.local/pip.venv/bin/activate"
+
 # shellcheck disable=SC2086
 wal ${bgopts} ${beopt} -${l}qsti "$p"
 
