@@ -117,7 +117,7 @@ copy() {
 		for file
 		do
 			setuniquepath "$PWD/${file##*/}"
-			cp -v "$file" "$uniquepath"
+			cp -rv "$file" "$uniquepath"
 		done
 	}
 }

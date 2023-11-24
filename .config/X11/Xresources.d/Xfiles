@@ -8,6 +8,8 @@ XFiles.opacity:                 0.9
 ! Icons for XDG user directories
 XFiles.fileIcons:                \n\
         *.wav=audio              \n\
+        *.wmv=video              \n\
+        *.avi=video              \n\
         *.c=code                 \n\
         *.h=code                 \n\
         *.css=code               \n\
