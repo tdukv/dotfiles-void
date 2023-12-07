@@ -3,11 +3,10 @@ st.termname: st-256color
 st.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=true
 #include "Xresources.d/st_alpha_transparent_90_80"
 
-
-
 ! xmenu
 xmenu.font: Liberation Mono:style=Regular:pixelsize=14:antialias=true:autohint=true
 
 #include "Xresources.d/Xmessage"
 #include "Xresources.d/Xcalc"
+#include "Xresources.d/Xclock"
 #include "Xresources.d/Xfiles"

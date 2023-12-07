@@ -49,13 +49,13 @@
 *color66:  {color0}
 
 ! Xclock colors.
-XClock*foreground: {foreground}
-XClock*background: {background}
-XClock*majorColor:  rgba:{color15.xrgba}
-XClock*minorColor:  rgba:{color15.xrgba}
-XClock*hourColor:   rgba:{color15.xrgba}
-XClock*minuteColor: rgba:{color15.xrgba}
-XClock*secondColor: rgba:{color15.xrgba}
+XClock.Clock.foreground: {foreground}
+XClock.Clock.background: {background}
+XClock.Clock.majorColor:  rgba:{color1.xrgba}
+XClock.Clock.minorColor:  rgba:{color7.xrgba}
+XClock.Clock.hourColor:   rgba:{color1.xrgba}
+XClock.Clock.minuteColor: rgba:{color7.xrgba}
+XClock.Clock.secondColor: rgba:{color2.xrgba}
 
 ! Xcalc colors.
 ! XCalc.ti.Command.background: {color8}
