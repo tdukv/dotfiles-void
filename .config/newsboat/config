@@ -11,8 +11,8 @@ bind-key LEFT  quit
 bind-key RIGHT open
 bind-key z article-feed
 
-feedlist-format     "%4i%S%n %11u %t"
-articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
+feedlist-format     "%4i%S%n %13u %t"
+articlelist-format  "%4i %f %D %?T?|%-19T| ?%t"
 error-log "~/.cache/logs/newsboat.log"
 goto-first-unread no
 goto-next-feed no
