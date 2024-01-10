@@ -17,7 +17,7 @@ alias ls="ls -F --color=auto"
 alias rm="rm -I"
 alias dd="dd bs=4k status=progress"
 alias cal="cal -m" # weeks start on monday
-alias ytdlp="yt-dlp --continue"
+alias ytdlp="yt-dlp"
 
 # account for line number width in less
 # Void:
