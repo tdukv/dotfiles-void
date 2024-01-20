@@ -55,9 +55,6 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-[ -d "$HOME/bin" ] &&
-    PATH="$HOME/bin:$PATH"
-
 [ -d "$HOME/.local/bin" ] &&
     PATH="$HOME/.local/bin:$PATH"
 
@@ -67,3 +64,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 umask 027
 
 [ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1 && exec startx
+
+stty rows 45
+stty cols 160

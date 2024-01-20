@@ -2,7 +2,7 @@
 
 # Shortning
 alias e="emacs"
-alias g="grep --exclude-dir='.git' -rnI"
+alias g="grep --color=auto --exclude-dir='.git' -rnI"
 alias +x="chmod -v u+x"
 alias hl="highlight"
 alias scat="highlight" # syntax cat
