@@ -23,6 +23,8 @@ for f in "$@" ; do
             "$term" -e mpv "$f"                 ;;
         */pdf)
             mupdf "$f"                          ;;
+        inode/x-empty)
+            xmessage -nearmouse "Empty!"        ;;
         *)
             notify-send "unknown type:" "$type" ;;
     esac
