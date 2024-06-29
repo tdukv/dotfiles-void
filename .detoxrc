@@ -1,13 +1,1 @@
-#
-# config file for detox(1)
-#
-
-#
-# Default sequence
-#
-
-sequence default {
-	uncgi;
-	safe;
-	wipeup;
-};
+.config/detox/detoxrc
