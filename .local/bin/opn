@@ -18,7 +18,7 @@ for f in "$@" ; do
         image/*)
             nsxiv "$f"                          ;;
         video/*|*/octet-stream)
-            mpv "$f"                            ;;
+            mpv --profile=fast --hwdec=auto-safe "$f"                            ;;
         audio/*)
             "$term" -e mpv "$f"                 ;;
         */pdf)

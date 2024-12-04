@@ -21,7 +21,7 @@ url=${1:-$(xclip -o -selection primary)}
 notify-send "mpvurl" \
             "Trying \"${url}\" with h=${height}\n(Final resolutions may differ.)"
 
-if ! mpv --keep-open=yes \
+if ! mpv --keep-open=yes --profile=fast \
      --ytdl-format="(bestvideo[height<=?${height}]+bestaudio/best)" "$url"
 then
     notify-send "mpvurl" "Can't play \"${url}\""
