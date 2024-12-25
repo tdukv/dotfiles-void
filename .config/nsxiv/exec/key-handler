@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Valid options:
+# dmenu
+# xmessage
+menu="dmenu"
+
+menu() {
+    case "$menu" in
+        dmenu)
+            printf "no\nyes\n" | dmenu -p "$*"
+        ;;
+        xmessage)
+            printf "%s" "$*" | xmessage -nearmouse -buttons yes:0,no:1 -print -file -
+        ;;
+        *) exit 1 ;;
+    esac
+}
+
+ask() {
+    case "$(menu "$*")" in
+        yes) return 0
+    esac
+    return 1
+}
+
+while read -r f ; do
+    case "$1" in
+        w) ask "Use $(basename "$f") as wallpaper?" && rewal -i "$f" ;;
+        d) ask "Remove $(basename "$f")?" && notif=$(rm -v "$(realpath "$f")") && notify-send "$notif"
+    esac
+done
