@@ -27,6 +27,10 @@ ask() {
 while read -r f ; do
     case "$1" in
         w) ask "Use $(basename "$f") as wallpaper?" && rewal -i "$f" ;;
-        d) ask "Remove $(basename "$f")?" && notif=$(rm -v "$(realpath "$f")") && notify-send "$notif"
+        d) ask "Remove $(basename "$f")?" && notif=$(rm -v "$(realpath "$f")") && notify-send "$notif" ;;
+        f) magick "$f" -flop       "$f" ;;
+        F) magick "$f" -flip       "$f" ;;
+        r) magick "$f" -rotate  90 "$f" ;;
+        R) magick "$f" -rotate -90 "$f" ;;
     esac
 done
