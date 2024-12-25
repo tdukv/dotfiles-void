@@ -8,20 +8,40 @@ menu="dmenu"
 menu() {
     case "$menu" in
         dmenu)
-            printf "no\nyes\n" | dmenu -p "$*"
+            printf "no\nyes\nYES\ncancel\n" | dmenu -p "$*"
         ;;
         xmessage)
-            printf "%s" "$*" | xmessage -nearmouse -buttons yes:0,no:1 -print -file -
+            printf "%s" "$*" | xmessage -nearmouse -buttons yes:0,no:1,YES:0,cancel:2 -print -file -
         ;;
         *) exit 1 ;;
     esac
 }
 
 ask() {
+
+    [ "$YES" ] && return 0
+
     case "$(menu "$*")" in
-        yes) return 0
+        yes)
+            return 0
+            ;;
+        YES)
+            YES="YES"
+            return 0
+            ;;
+        no)
+            return 1
+            ;;
+        *)
+            exit 0
+            ;;
     esac
-    return 1
+}
+
+# Requres cdmenu
+# https://raw.githubusercontent.com/tdukv/dotfiles-void/refs/heads/master/.local/bin/cdmenu
+dest() {
+    [ "$dest" ] || dest=$(cdmenu "$PWD")
 }
 
 while read -r f ; do
@@ -32,5 +52,17 @@ while read -r f ; do
         F) magick "$f" -flip       "$f" ;;
         r) magick "$f" -rotate  90 "$f" ;;
         R) magick "$f" -rotate -90 "$f" ;;
+        c) # copy
+            dest &&
+                [ -d "$dest" ] &&
+                ask "Copy $(basename "$f") to $dest" &&
+                notif=$(cp -v "$(realpath "$f")" "$(realpath "$dest")") &&
+                notify-send "$notif" ;;
+        m) # move
+            dest &&
+                [ -d "$dest" ] &&
+                ask "Move $(basename "$f") to $dest" &&
+                notif=$(mv -v "$(realpath "$f")" "$(realpath "$dest")") &&
+                notify-send "$notif" ;;
     esac
 done
