@@ -41,28 +41,58 @@ ask() {
 # Requres cdmenu
 # https://raw.githubusercontent.com/tdukv/dotfiles-void/refs/heads/master/.local/bin/cdmenu
 dest() {
-    [ "$dest" ] || dest=$(cdmenu "$PWD")
+    [ "$dest" ] || dest=$(cdmenu "$1")
 }
 
 while read -r f ; do
     case "$1" in
         w) ask "Use $(basename "$f") as wallpaper?" && rewal -i "$f" ;;
-        d) ask "Remove $(basename "$f")?" && notif=$(rm -v "$(realpath "$f")") && notify-send "$notif" ;;
         f) magick "$f" -flop       "$f" ;;
         F) magick "$f" -flip       "$f" ;;
         r) magick "$f" -rotate  90 "$f" ;;
         R) magick "$f" -rotate -90 "$f" ;;
+        d) #delete
+            ask "Remove $(basename "$f")?" &&
+                notif=$(rm -v "$(realpath "$f")") &&
+                notify-send "$notif"
+            ;;
         c) # copy
-            dest &&
+            dest "$(dirname "$f")" &&
                 [ -d "$dest" ] &&
-                ask "Copy $(basename "$f") to $dest" &&
+                [ "$(realpath "$dest")" != "$(realpath "$(dirname "$f")")" ] &&
+                ask "Copy $(basename "$f") to $dest?" &&
                 notif=$(cp -v "$(realpath "$f")" "$(realpath "$dest")") &&
-                notify-send "$notif" ;;
+                notify-send "$notif"
+            ;;
         m) # move
-            dest &&
+            dest "$(dirname "$f")" &&
                 [ -d "$dest" ] &&
-                ask "Move $(basename "$f") to $dest" &&
+                [ "$(realpath "$dest")" != "$(realpath "$(dirname "$f")")" ] &&
+                ask "Move $(basename "$f") to $dest?" &&
                 notif=$(mv -v "$(realpath "$f")" "$(realpath "$dest")") &&
-                notify-send "$notif" ;;
+                notify-send "$notif"
+            ;;
+        n) # rename
+            name=$(dmenu -p "rename:" -it "$(basename "$f")" < /dev/null) &&
+                [ -n "$name" ] &&
+                [ "$name" != "$(basename "$f")" ] &&
+                ask "Rename $(basename "$f") to $name?" &&
+                notif=$(mv -v "$f" "$(dirname "$f")/$name") &&
+                notify-send "$notif"
+            ;;
+        h) # help
+            printf "%s\t%s\n" \
+                   "w:" "set as wallpaper" \
+                   "f:" "flip horizontaly" \
+                   "F:" "flip verticaly" \
+                   "r:" "rotate CW" \
+                   "R:" "rotate CCW" \
+                   "d:" "delete" \
+                   "c:" "copy" \
+                   "m:" "move" \
+                   "n:" "rename" \
+                   "h:" "show this message" \
+                | xmessage -nearmouse -file -
+            ;;
     esac
 done

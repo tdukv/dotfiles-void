@@ -8,12 +8,6 @@
 #   $2: image width
 #   $3: image height
 
-s=" | " # field separator
-
 exec 2>/dev/null
 
-filename=$(basename -- "$1")
-geometry="${2}x${3}"
-
-echo "${geometry}${s}${filename}"
-
+magick identify -format "%wx%h | %f | %[size] | %[magick] | %[colorspace] %[compression] %[quality]\n" "$1"
