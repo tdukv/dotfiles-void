@@ -311,24 +311,6 @@ makedir_dmenu() {
 	[ "$dir" ] && mkdir -p "$dir"
 }
 
-# open random file in current directory
-random() {
-	set --
-	for file in *
-	do
-		test -f "$file" && set -- "$file" "$@"
-	done
-	case "$#" in
-	(0)
-		return
-		;;
-	(*)
-		shift "$(awk 'BEGIN{print int(ARGV[1]*rand())}' "$#")"
-		open "$1"
-		;;
-	esac
-}
-
 # change current directory of XFiles window
 changedir() {
 	xprop -id "$WINDOWID" -format "_CONTROL_GOTO" 8u -set "_CONTROL_GOTO" "$1"
@@ -406,7 +388,6 @@ mkdir
 open
 	xfiles
 	term
-	random
 
 IMG:/usr/share/icons/hicolor/16x16/apps/nsxiv.png	nsxiv
 IMG:/usr/share/icons/hicolor/16x16/apps/mpv.png	mpv
@@ -437,9 +418,6 @@ EOF
 			;;
 		("mkdir")
 			makedir_dmenu
-			;;
-		("random")
-			random
 			;;
 		("term")
 			term
