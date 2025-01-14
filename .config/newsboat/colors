@@ -2,8 +2,8 @@ color background          default default
 color listnormal          default default  dim
 color listfocus           black   green    dim
 color listnormal_unread   default default  bold
-color listfocus_unread    black   green    bold
-color info                black   cyan     bold
+color listfocus_unread    green   default  bold reverse
+color info                cyan    default  bold reverse
 color article             default default
 
 highlight article "https?://[^ ]+" cyan default bold
