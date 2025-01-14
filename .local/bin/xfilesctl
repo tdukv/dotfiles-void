@@ -68,6 +68,11 @@ term() {
 	$TERMINAL &
 }
 
+# open ncdu on current directory
+ncdu() {
+	$TERMINAL -e ncdu -x --confirm-quit --color dark &
+}
+
 # open given files (on background, so xfiles not wait)
 open() {
 	command -- "$OPENER" "$@" &
@@ -388,6 +393,7 @@ mkdir
 open
 	xfiles
 	term
+	ncdu
 
 IMG:/usr/share/icons/hicolor/16x16/apps/nsxiv.png	nsxiv
 IMG:/usr/share/icons/hicolor/16x16/apps/mpv.png	mpv
@@ -422,6 +428,9 @@ EOF
 		("term")
 			term
 			;;
+                ("ncdu")
+                        ncdu
+                        ;;
 		("xfiles")
 			newwin
 			;;
