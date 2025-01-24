@@ -29,7 +29,7 @@ png|jpg|jpeg|gif|xpm|xbm|ppm|webp|bmp|JPEG|JPG|heic)
 		"${2}"
 	;;
 webm|mp4|MP4|mkv|MKV|ogv|avi|AVI|m4v|flv|wmv|mpg|mov|MOV|vob|TS)
-	ffmpegthumbnailer -c png -i "${1}" -o - -s "${THUMBSIZE}" \
+	ffmpegthumbnailer -f -c png -i "${1}" -o - -s "${THUMBSIZE}" \
 		| convert - -define filename:literal=true -format ppm \
 		"${2}"
 	;;
