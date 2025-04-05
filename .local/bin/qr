@@ -3,4 +3,15 @@
 text="$(xclip -o -selection primary)"
 [ -z "$text" ] && exit 0
 
-qrencode -s 20 -o - -- "$text" | feh - -F
+if [ -f "$XDG_CACHE_HOME"/wal/colors.sh ]; then
+    # shellcheck source=/dev/null
+    . "$XDG_CACHE_HOME"/wal/colors.sh
+else
+    background='#111111'
+    foreground='#aaaaaa'
+fi
+
+qrencode -s 20 -o - \
+         --background="${background#\#}" \
+         --foreground="${foreground#\#}" \
+         -- "$text" | feh - -F
