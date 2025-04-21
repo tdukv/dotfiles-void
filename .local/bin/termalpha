@@ -1,0 +1,20 @@
+#!/bin/sh
+
+case "$0" in
+    *unf) resource="st.alphaUnf" ;;
+    *)    resource="st.alpha"    ;;
+esac
+
+tempfile="$(mktemp)" || exit 1
+
+cur=$(printf "100 * %s\n" "$(xrdb -get "$resource")" | bc )
+
+wjt -p "$resource" -x "$cur" -j 10 "$@" |
+    while read -r val; do
+        fracval=$(printf "scale=2; %s / 100 \n" "$val" | bc)
+        printf "%s : %s\n" "$resource" "$fracval" > "$tempfile"
+        xrdb -merge "$tempfile"
+        pkill -u "$USER" -x -USR1 st
+done
+
+rm "$tempfile"
