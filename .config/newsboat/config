@@ -4,6 +4,8 @@ confirm-exit yes
 include "~/.config/newsboat/colors"
 include "~/.config/newsboat/macros"
 
+ignore-article "regex:https?://www.youtube.com/.*" "link =~ \"shorts\""
+
 unbind-key A
 unbind-key ^D
 
